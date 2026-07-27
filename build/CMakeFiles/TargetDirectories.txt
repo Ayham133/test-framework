@@ -1,0 +1,3 @@
+/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/test_framework.dir
+/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/edit_cache.dir
+/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/rebuild_cache.dir
