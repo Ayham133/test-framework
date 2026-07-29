@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = 
+C_INCLUDES = -I/home/ayham/Desktop/EveryThing/C/test-framework/include
 
 C_FLAGS = 
 

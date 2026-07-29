@@ -69,28 +69,28 @@ include CMakeFiles/test_framework.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/test_framework.dir/flags.make
 
-CMakeFiles/test_framework.dir/main.c.o: CMakeFiles/test_framework.dir/flags.make
-CMakeFiles/test_framework.dir/main.c.o: /home/ayham/Desktop/EveryThing/C/test-framework/main.c
-CMakeFiles/test_framework.dir/main.c.o: CMakeFiles/test_framework.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/test_framework.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/test_framework.dir/main.c.o -MF CMakeFiles/test_framework.dir/main.c.o.d -o CMakeFiles/test_framework.dir/main.c.o -c /home/ayham/Desktop/EveryThing/C/test-framework/main.c
+CMakeFiles/test_framework.dir/src/main.c.o: CMakeFiles/test_framework.dir/flags.make
+CMakeFiles/test_framework.dir/src/main.c.o: /home/ayham/Desktop/EveryThing/C/test-framework/src/main.c
+CMakeFiles/test_framework.dir/src/main.c.o: CMakeFiles/test_framework.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/test_framework.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/test_framework.dir/src/main.c.o -MF CMakeFiles/test_framework.dir/src/main.c.o.d -o CMakeFiles/test_framework.dir/src/main.c.o -c /home/ayham/Desktop/EveryThing/C/test-framework/src/main.c
 
-CMakeFiles/test_framework.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/test_framework.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ayham/Desktop/EveryThing/C/test-framework/main.c > CMakeFiles/test_framework.dir/main.c.i
+CMakeFiles/test_framework.dir/src/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/test_framework.dir/src/main.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ayham/Desktop/EveryThing/C/test-framework/src/main.c > CMakeFiles/test_framework.dir/src/main.c.i
 
-CMakeFiles/test_framework.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/test_framework.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ayham/Desktop/EveryThing/C/test-framework/main.c -o CMakeFiles/test_framework.dir/main.c.s
+CMakeFiles/test_framework.dir/src/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/test_framework.dir/src/main.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ayham/Desktop/EveryThing/C/test-framework/src/main.c -o CMakeFiles/test_framework.dir/src/main.c.s
 
 # Object files for target test_framework
 test_framework_OBJECTS = \
-"CMakeFiles/test_framework.dir/main.c.o"
+"CMakeFiles/test_framework.dir/src/main.c.o"
 
 # External object files for target test_framework
 test_framework_EXTERNAL_OBJECTS =
 
-test_framework: CMakeFiles/test_framework.dir/main.c.o
+test_framework: CMakeFiles/test_framework.dir/src/main.c.o
 test_framework: CMakeFiles/test_framework.dir/build.make
 test_framework: CMakeFiles/test_framework.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable test_framework"
