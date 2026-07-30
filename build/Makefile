@@ -129,29 +129,66 @@ test_framework/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/build
 .PHONY : test_framework/fast
 
-src/main.o: src/main.c.o
-.PHONY : src/main.o
+#=============================================================================
+# Target rules for targets named my_test_framework
+
+# Build rule for target.
+my_test_framework: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my_test_framework
+.PHONY : my_test_framework
+
+# fast build rule for target.
+my_test_framework/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/build
+.PHONY : my_test_framework/fast
+
+example/simple_test.o: example/simple_test.c.o
+.PHONY : example/simple_test.o
 
 # target to build an object file
-src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/src/main.c.o
-.PHONY : src/main.c.o
+example/simple_test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/example/simple_test.c.o
+.PHONY : example/simple_test.c.o
 
-src/main.i: src/main.c.i
-.PHONY : src/main.i
+example/simple_test.i: example/simple_test.c.i
+.PHONY : example/simple_test.i
 
 # target to preprocess a source file
-src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/src/main.c.i
-.PHONY : src/main.c.i
+example/simple_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/example/simple_test.c.i
+.PHONY : example/simple_test.c.i
 
-src/main.s: src/main.c.s
-.PHONY : src/main.s
+example/simple_test.s: example/simple_test.c.s
+.PHONY : example/simple_test.s
 
 # target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/src/main.c.s
-.PHONY : src/main.c.s
+example/simple_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/example/simple_test.c.s
+.PHONY : example/simple_test.c.s
+
+src/assertions.o: src/assertions.c.o
+.PHONY : src/assertions.o
+
+# target to build an object file
+src/assertions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/assertions.c.o
+.PHONY : src/assertions.c.o
+
+src/assertions.i: src/assertions.c.i
+.PHONY : src/assertions.i
+
+# target to preprocess a source file
+src/assertions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/assertions.c.i
+.PHONY : src/assertions.c.i
+
+src/assertions.s: src/assertions.c.s
+.PHONY : src/assertions.s
+
+# target to generate assembly for a file
+src/assertions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/assertions.c.s
+.PHONY : src/assertions.c.s
 
 # Help Target
 help:
@@ -161,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... my_test_framework"
 	@echo "... test_framework"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... example/simple_test.o"
+	@echo "... example/simple_test.i"
+	@echo "... example/simple_test.s"
+	@echo "... src/assertions.o"
+	@echo "... src/assertions.i"
+	@echo "... src/assertions.s"
 .PHONY : help
 
 
