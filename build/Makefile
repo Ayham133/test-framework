@@ -190,6 +190,30 @@ src/assertions.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/assertions.c.s
 .PHONY : src/assertions.c.s
 
+src/registry.o: src/registry.c.o
+.PHONY : src/registry.o
+
+# target to build an object file
+src/registry.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/registry.c.o
+.PHONY : src/registry.c.o
+
+src/registry.i: src/registry.c.i
+.PHONY : src/registry.i
+
+# target to preprocess a source file
+src/registry.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/registry.c.i
+.PHONY : src/registry.c.i
+
+src/registry.s: src/registry.c.s
+.PHONY : src/registry.s
+
+# target to generate assembly for a file
+src/registry.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/registry.c.s
+.PHONY : src/registry.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -206,6 +230,9 @@ help:
 	@echo "... src/assertions.o"
 	@echo "... src/assertions.i"
 	@echo "... src/assertions.s"
+	@echo "... src/registry.o"
+	@echo "... src/registry.i"
+	@echo "... src/registry.s"
 .PHONY : help
 
 

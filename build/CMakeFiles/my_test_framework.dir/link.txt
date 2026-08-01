@@ -1,1 +1,1 @@
-/usr/bin/cc -fPIC -shared -Wl,-soname,libmy_test_framework.so -o libmy_test_framework.so CMakeFiles/my_test_framework.dir/src/assertions.c.o 
+/usr/bin/cc -fPIC -shared -Wl,-soname,libmy_test_framework.so -o libmy_test_framework.so CMakeFiles/my_test_framework.dir/src/assertions.c.o CMakeFiles/my_test_framework.dir/src/registry.c.o 

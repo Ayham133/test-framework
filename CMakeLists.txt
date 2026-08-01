@@ -7,6 +7,7 @@ add_executable(test_framework
 
 add_library(my_test_framework SHARED
     src/assertions.c
+    src/registry.c
 )
 
 target_include_directories(test_framework

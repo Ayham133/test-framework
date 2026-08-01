@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/my_test_framework.dir/src/assertions.c.o"
   "CMakeFiles/my_test_framework.dir/src/assertions.c.o.d"
+  "CMakeFiles/my_test_framework.dir/src/registry.c.o"
+  "CMakeFiles/my_test_framework.dir/src/registry.c.o.d"
   "libmy_test_framework.pdb"
   "libmy_test_framework.so"
 )

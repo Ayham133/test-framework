@@ -1,5 +1,6 @@
 #include "../include/test.h"
 #include <stddef.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -69,14 +70,29 @@ static bool registry_resize(void)
  */
 static bool registry_init(void)
 {
+
     Registry.capacity = 20;
     Registry.size = 0;
+
     Registry.tests = malloc(sizeof(Test) * Registry.capacity);
 
-    if(registry_is_initialized())
+
+    if (!registry_is_initialized())
+    {
         return false;
+    }
 
     return true;
+}
+
+/**
+ * @brief       report error messages to stderr stream.
+ *
+ * @param message       the error message to report.
+ */
+static void registry_error(const char *message)
+{
+    fprintf(stderr, "Registry Error: %s\n", message);
 }
 
 /**
@@ -85,21 +101,28 @@ static bool registry_init(void)
  * @param   function        a pointer to the test function.
  * @param   name            a string that containes the name of the function.
  */
-void register_test(void(*function)(void), const char *name)
+void register_test(TestFunction function, const char *name)
 {
     if(!registry_is_initialized())
     {
         if(!registry_init())
+        {
+            registry_error("Failed to initialize registry.");
             return;
+        }
     }
 
     if(registry_is_full())
     {
         if(!registry_resize())
+        {
+            registry_error("Failed to resize registry.");
             return;
+        }
     }
 
     Registry.tests[Registry.size].function = function;
     Registry.tests[Registry.size].name     = name;
     Registry.size++;
+    printf("Registry: Added new test to the registry.\n");
 }
