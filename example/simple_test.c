@@ -3,12 +3,17 @@
 #include <stdlib.h>
 
 
+TEST(Math)
+{
+
+    ASSERT_EQ(1 == 2, 1 != 2);
+}
+
 int main(void)
 {
 
     printf("Testing\n");
-
-    ASSERT_TRUE(1 == 2);
+    test_Math();
 
     return EXIT_SUCCESS;
 }

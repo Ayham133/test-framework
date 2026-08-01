@@ -1,11 +1,14 @@
 #ifndef TEST_H
 #define TEST_H
 
+#define TEST(name)  \
+        void test_##name(void)
+
 #define ASSERT_TRUE(condition)  \
-    test_assert((condition), #condition, __FILE__, __LINE__)
+    test_assert((condition), #condition, __FILE__, __LINE__);
 
 #define ASSERT_EQ(condition, actual)    \
-    test_assert_eq((condition), (actual), #condition, #actual, __FILE__, __LINE__)
+    test_assert_eq((condition), (actual), #condition, #actual, __FILE__, __LINE__);
 
 /**
  * @brief   build the test.

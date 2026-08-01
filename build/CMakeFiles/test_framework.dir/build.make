@@ -92,6 +92,7 @@ test_framework_EXTERNAL_OBJECTS =
 
 test_framework: CMakeFiles/test_framework.dir/example/simple_test.c.o
 test_framework: CMakeFiles/test_framework.dir/build.make
+test_framework: libmy_test_framework.so
 test_framework: CMakeFiles/test_framework.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable test_framework"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_framework.dir/link.txt --verbose=$(VERBOSE)

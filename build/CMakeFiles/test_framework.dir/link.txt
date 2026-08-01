@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/test_framework.dir/example/simple_test.c.o -o test_framework 
+/usr/bin/cc CMakeFiles/test_framework.dir/example/simple_test.c.o -o test_framework  -Wl,-rpath,/home/ayham/Desktop/EveryThing/C/test-framework/build libmy_test_framework.so 
