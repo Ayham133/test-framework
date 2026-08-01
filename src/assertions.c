@@ -14,9 +14,9 @@ void test_assert(int condition, const char *str, const char *file, int line)
 {
     if(!condition)
     {
-        printf("Assertation failed!!\n");
-        printf("Expretion: %s\n", str);
-        printf("File: %s, at line: %d\n", file, line);
+        printf("\tAssertation failed!!\n");
+        printf("\tExpretion: %s\n", str);
+        printf("\tFile: %s, at line: %d\n", file, line);
     }
 
 }
@@ -34,10 +34,10 @@ void test_assert_eq(int condition, int actual, const char *condition_str, const 
 {
     if(condition != actual)
     {
-        printf("Assertation failed!!\n");
-        printf("Expretion: %s\n", condition_str);
-        printf("Actual: %s\n", actual_str);
-        printf("File: %s, at line: %d\n", file, line);
+        printf("\tAssertation failed!!\n");
+        printf("\tExpretion: %s\n", condition_str);
+        printf("\tActual: %s\n", actual_str);
+        printf("\tFile: %s, at line: %d\n", file, line);
     }
 
 }

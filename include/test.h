@@ -1,6 +1,8 @@
 #ifndef TEST_H
 #define TEST_H
 
+#include <stdbool.h>
+
 #define TEST(name)  \
         void test_##name(void)
 
@@ -53,6 +55,6 @@ void register_test(void(*function)(void), const char *name);
  * @param [void]
  * @return [void]
  */
-void run_all_tests(void);
+bool run_all_tests(void);
 
 #endif // !TEST_H

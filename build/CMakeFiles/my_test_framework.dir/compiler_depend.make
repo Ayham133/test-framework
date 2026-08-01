@@ -28,6 +28,7 @@ CMakeFiles/my_test_framework.dir/src/assertions.c.o: /home/ayham/Desktop/EveryTh
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
 CMakeFiles/my_test_framework.dir/src/registry.c.o: /home/ayham/Desktop/EveryThing/C/test-framework/src/registry.c \
@@ -89,8 +90,6 @@ CMakeFiles/my_test_framework.dir/src/registry.c.o: /home/ayham/Desktop/EveryThin
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h:
-
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
@@ -124,6 +123,8 @@ CMakeFiles/my_test_framework.dir/src/registry.c.o: /home/ayham/Desktop/EveryThin
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/home/ayham/Desktop/EveryThing/C/test-framework/src/registry.c:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
@@ -162,6 +163,8 @@ CMakeFiles/my_test_framework.dir/src/registry.c.o: /home/ayham/Desktop/EveryThin
 /usr/include/features.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
@@ -202,5 +205,3 @@ CMakeFiles/my_test_framework.dir/src/registry.c.o: /home/ayham/Desktop/EveryThin
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
-
-/home/ayham/Desktop/EveryThing/C/test-framework/src/registry.c:

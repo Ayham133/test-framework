@@ -23,6 +23,30 @@ typedef  struct
 static TestRegistry Registry;
 
 /**
+ * @brief       returns the size of the Registry.
+ */
+size_t registry_size(void)
+{
+    return Registry.size;
+}
+
+/**
+ * @brief       get a test in the Registry.tests.
+ *
+ * @param index         the index of the wanted test.
+ * @param out_value     a pointer to the address where the tets is needed to be.
+ * @return [bool]       return true if the test was found, false if the index was invalide.
+ */
+bool registry_get(const size_t index, Test *out_value)
+{
+    if(index > Registry.size)
+        return false;
+
+    *out_value = Registry.tests[index];
+    return true;
+}
+
+/**
  *
  * @brief       check if the Registry is full or not.
  *
@@ -125,4 +149,39 @@ void register_test(TestFunction function, const char *name)
     Registry.tests[Registry.size].name     = name;
     Registry.size++;
     printf("Registry: Added new test to the registry.\n");
+}
+
+
+/**
+ * @brief       run all the tests in the registery. and report there status.
+ *
+ * @param [void]
+ * @return [void]
+ */
+bool run_all_tests(void)
+{
+   if(Registry.size == 0)
+        return false;
+
+    printf("========================================\n");
+    printf("Running Tests\n");
+    printf("========================================\n");
+
+    
+    for(size_t i = 0; i < Registry.size; i++)
+    {
+        Test current;
+        bool status = registry_get(i, &current);
+
+        printf("Running: %s\n", current.name);
+        current.function();
+        printf("Ok     : %s\n", current.name);
+    }
+
+    printf("========================================\n");
+    printf("End of Tests\n");
+    printf("========================================\n");
+
+
+    return true;
 }
