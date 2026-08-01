@@ -10,7 +10,7 @@
  * @param file          the name of the file.
  * @param line          the line number.
  */
-void test_assert(int condition, char *str, char *file, int line)
+void test_assert(int condition, const char *str, const char *file, int line)
 {
     if(!condition)
     {
@@ -30,7 +30,7 @@ void test_assert(int condition, char *str, char *file, int line)
  * @param file                  the name of the file.
  * @param line                  the line number.
  */
-void test_assert_eq(int condition, int actual, char *condition_str, char *actual_str, char *file, int line)
+void test_assert_eq(int condition, int actual, const char *condition_str, const char *actual_str, const char *file, int line)
 {
     if(condition != actual)
     {

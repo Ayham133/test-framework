@@ -13,7 +13,7 @@ int main(void)
 {
 
     printf("Testing\n");
-    test_Math();
+    REGISTER_TEST(test_Math);
 
     return EXIT_SUCCESS;
 }
