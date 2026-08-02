@@ -39,5 +39,4 @@ void test_assert_eq(int condition, int actual, const char *condition_str, const 
         printf("\tActual: %s\n", actual_str);
         printf("\tFile: %s, at line: %d\n", file, line);
     }
-
 }

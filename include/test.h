@@ -4,8 +4,19 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define TEST(name)  \
+#define TEST(name)                          \
+        void test_##name(void);             \
+                                            \
+        static void register_##name(void)   \
+        __attribute__((constructor));       \
+                                            \
+        static void register_##name(void)   \
+        {                                   \
+            register_test(test_##name, #name);     \
+        }                                   \
+                                            \
         void test_##name(void)
+
 
 #define REGISTER_TEST(name) \
     register_test(name, #name);
@@ -13,8 +24,17 @@
 #define ASSERT_TRUE(condition)  \
     test_assert((condition), #condition, __FILE__, __LINE__);
 
+#define ASSERT_FALSE(condition) \
+    tset_assert_false((condition), #condition, __FILE__, __LINE__);
+
 #define ASSERT_EQ(condition, actual)    \
     test_assert_eq((condition), (actual), #condition, #actual, __FILE__, __LINE__);
+
+#define ASSERT_NULL(pointer)    \
+    test_assert_null((pointer), #pointer, __FILE__, __LINE__);
+
+#define ASSERT_NOT_NULL(pointer)   \
+    test_assert_not_null((pointer), #pointer, __FILE__, __LINE__);
 
 
 
@@ -42,6 +62,26 @@ void test_assert(int condition, const char *str, const char *file, int line);
  * @param line                  the line number.
  */
 void test_assert_eq(int condition, int actual, const char *condition_str, const char *actual_str, const char *file, int line);
+
+/**
+ * @brief   assert the test and check if the pointer is null or not.
+ *
+ * @param pointer     the ginirc pointer to check if it is null or not.
+ * @param str           a string of the condition, used to print the message of the test itself when reporting.
+ * @param file          the name of the file.
+ * @param line          the line number.
+ */
+void tset_assert_null(void *pointer, const char *str, const char *file, int line);
+
+/**
+ * @brief   assert the test and check if the pointer is NOT null or not.
+ *
+ * @param pointer     the ginirc pointer to check if it is NOT null or not.
+ * @param str           a string of the condition, used to print the message of the test itself when reporting.
+ * @param file          the name of the file.
+ * @param line          the line number.
+ */
+void test_assert_not_null(void *pointer, const char *str, const char *file, int line);
 
 /**
  * @brief       register tests to the test registery.

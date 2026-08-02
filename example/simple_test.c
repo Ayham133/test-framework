@@ -5,15 +5,18 @@
 
 TEST(Math)
 {
+    ASSERT_EQ(1 != 2, 1 == 2);
+}
 
-    ASSERT_EQ(1 == 2, 1 != 2);
+TEST(Sub)
+{
+    ASSERT_EQ( 1 - 1, 0);
 }
 
 int main(void)
 {
 
     printf("Testing\n");
-    REGISTER_TEST(test_Math);
     run_all_tests();
 
     return EXIT_SUCCESS;
