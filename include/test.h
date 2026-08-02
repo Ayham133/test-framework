@@ -25,7 +25,7 @@
     test_assert((condition), #condition, __FILE__, __LINE__);
 
 #define ASSERT_FALSE(condition) \
-    tset_assert_false((condition), #condition, __FILE__, __LINE__);
+    test_assert_false((condition), #condition, __FILE__, __LINE__);
 
 #define ASSERT_EQ(condition, actual)    \
     test_assert_eq((condition), (actual), #condition, #actual, __FILE__, __LINE__);
@@ -53,6 +53,15 @@ typedef struct Test Test;
 void test_assert(int condition, const char *str, const char *file, int line);
 
 /**
+ * @brief   build the test.
+ *
+ * @param condition     the condition to be tested.
+ * @param str           a string of the condition, used to print the message of the test itself when reporting.
+ * @param file          the name of the file.
+ * @param line          the line number.
+ */
+void test_assert_false(int condition, const char *str, const char *file, int line);
+/**
  * @brief   build the test. tests the condition if it is equal to the actual.
  *
  * @param condition             the condition to be tested.
@@ -71,7 +80,7 @@ void test_assert_eq(int condition, int actual, const char *condition_str, const 
  * @param file          the name of the file.
  * @param line          the line number.
  */
-void tset_assert_null(void *pointer, const char *str, const char *file, int line);
+void test_assert_null(void *pointer, const char *str, const char *file, int line);
 
 /**
  * @brief   assert the test and check if the pointer is NOT null or not.

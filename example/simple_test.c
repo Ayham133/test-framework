@@ -1,5 +1,4 @@
 #include "../include/test.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 
@@ -13,11 +12,25 @@ TEST(Sub)
     ASSERT_EQ( 1 - 1, 0);
 }
 
+TEST(Condition)
+{
+    ASSERT_FALSE(1 != 2);
+}
+
+TEST(NullPointer)
+{
+    char *name;
+    ASSERT_NULL(name);
+}
+
+TEST(NotNullPointer)
+{
+    char *name = "name";
+    ASSERT_NOT_NULL(name);
+}
+
 int main(void)
 {
-
-    printf("Testing\n");
     run_all_tests();
-
     return EXIT_SUCCESS;
 }
