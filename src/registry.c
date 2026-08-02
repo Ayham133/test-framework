@@ -6,11 +6,11 @@
 
 
 
-typedef struct
+struct Test
 {
     const char *name;
     TestFunction function;
-}Test;
+};
 
 typedef  struct
 {
@@ -37,13 +37,27 @@ size_t registry_size(void)
  * @param out_value     a pointer to the address where the tets is needed to be.
  * @return [bool]       return true if the test was found, false if the index was invalide.
  */
-bool registry_get(const size_t index, Test *out_value)
+bool register_get(const size_t index, Test *out_value)
 {
     if(index > Registry.size)
         return false;
 
     *out_value = Registry.tests[index];
     return true;
+}
+
+/**
+ * @brief       returns the number of tests stored in the Registry.
+ *
+ * @param [void]
+ * @return [int]    the number of tests in the Registry.
+ */
+int register_count(void)
+{
+    if (Registry.tests == NULL || Registry.size == 0)
+        return 0;
+
+    return Registry.size;
 }
 
 /**
@@ -171,7 +185,7 @@ bool run_all_tests(void)
     for(size_t i = 0; i < Registry.size; i++)
     {
         Test current;
-        bool status = registry_get(i, &current);
+        bool status = register_get(i, &current);
 
         printf("Running: %s\n", current.name);
         current.function();
