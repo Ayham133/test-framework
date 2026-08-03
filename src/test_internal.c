@@ -1,4 +1,6 @@
 #include "../internal/test_internal.h"
+#include "../internal/reporter.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 static Test *current_test;
@@ -34,6 +36,24 @@ void set_current_test_to(Test *test)
 }
 
 /**
+ * @breif       update the current_test status.
+ *
+ * @param status    the boolean to update.
+ */
+void set_current_test_status_to(bool status)
+{
+    current_test->passed = status;
+}
+
+/**
+ * @breif       return the current_test status.
+ */
+bool get_current_test_stattus(void)
+{
+    return current_test->passed;
+}
+
+/**
  * @breif       return the current_test pointer.
  *
  * @return      return the current_test pointer.
@@ -41,4 +61,13 @@ void set_current_test_to(Test *test)
 Test *get_current_test(void)
 {
     return current_test;
+}
+
+void print_current_test(void)
+{
+    printf("name: %s\nstatus: ", current_test->name);
+    if(current_test->passed)
+        printf(T_GRN "Passed" RESET);
+    else
+        printf(T_RED "Failed" RESET);
 }

@@ -6,5 +6,5 @@ C_DEFINES = -Dmy_test_framework_EXPORTS
 
 C_INCLUDES = 
 
-C_FLAGS = -fPIC
+C_FLAGS = -g -fPIC
 

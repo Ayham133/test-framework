@@ -1,4 +1,7 @@
 #include "../internal/reporter.h"
+#include "../include/test.h"
+#include "../internal/registry.h"
+#include "../internal/test_internal.h"
 #include <stdio.h>
 
 
@@ -7,9 +10,9 @@
  */
 void reporter_begin_test(void)
 {
-    printf("========================================\n");
+    printf(T_BLU "=============================================\n" RESET);
     printf("Running Tests\n");
-    printf("========================================\n");
+    printf(T_BLU "=============================================\n" RESET);
 }
 
 /**
@@ -17,9 +20,9 @@ void reporter_begin_test(void)
  */
 void reporter_end_test(void)
 {
-    printf("========================================\n");
+    printf(T_BLU "=============================================\n" RESET);
     printf("End of Tests\n");
-    printf("========================================\n");
+    printf(T_BLU "=============================================\n" RESET);
 }
 
 /**
@@ -27,9 +30,10 @@ void reporter_end_test(void)
  *
  * @param test      a pointer to the test.
  */
-void reporter_test_run(const char *name)
+void reporter_test_run()
 {
-       printf("[" T_YEL "RUN" RESET "   ] %s\n", name);
+    const char *name = get_current_test()->name;
+    printf("[" T_YEL "RUN" RESET "   ] %s\n", name);
 }
 
 /**
@@ -37,7 +41,20 @@ void reporter_test_run(const char *name)
  *
  * @param name      the name of the test.
  */
-void reporter_test_succeeded(const char *name)
+void reporter_test_succeeded()
 {
-       printf("[" T_GRN "OK" RESET "   ] %s\n", name);
+    const char *name = get_current_test()->name;
+    printf("[" T_GRN "OK" RESET "   ] %s\n", name);
+}
+
+/**
+ * @breif       prints the test summary, total test, number of passed tests, number of failed tests.
+ */
+void reporter_test_summary(void)
+{
+    printf(T_BLU "=============================================\n" RESET);
+    printf("Total tests: " RESET T_YEL"%d\n", register_count());
+    printf("Passed: " T_GRN"%zu\n" RESET, registry_passed_tests());
+    printf("Failed: " T_RED"%zu\n" RESET, registry_failed_tests());
+    printf(T_BLU "=============================================\n" RESET);
 }

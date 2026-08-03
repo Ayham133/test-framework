@@ -4,18 +4,16 @@
 #include "../internal/reporter.h"
 
 
-void update_current_test_and_report_status(Test *current)
+void update_current_test_and_report_status()
 {
-    if(current == NULL)
-        return;
 
-    if(current->passed)
+    if(get_current_test_stattus())
     {
-        reporter_test_succeeded(current->name);
+        reporter_test_succeeded();
         registry_inc_passed_tests();
     }
     else{
-        reporter_test_failed(current);
+        // reporter_test_failed();
         registry_inc_failed_tests();
     }
 
@@ -31,7 +29,8 @@ bool run_all_tests(void)
 {
     if(registry_size() == 0)
         return false;
-
+    
+    reporter_begin_test();
     for(size_t i = 0; i < registry_size(); i++)
     {
         Test current;
@@ -42,11 +41,13 @@ bool run_all_tests(void)
 
         set_current_test_to(&current);
 
-        reporter_test_run(current.name);
+        reporter_test_run();
 
         current.function();
 
-        update_current_test_and_report_status(&current);
+        update_current_test_and_report_status();
     }
+
+    reporter_test_summary();
     return true;
 }

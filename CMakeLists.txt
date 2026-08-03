@@ -8,12 +8,18 @@ add_executable(test_framework
 add_library(my_test_framework SHARED
     src/assertions.c
     src/registry.c
+    src/reporter.c
+    src/runner.c
+    src/test_internal.c
 )
 
 target_include_directories(test_framework
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+target_include_directories(test_framework
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/internal
+)
 
 target_link_libraries(test_framework
     PRIVATE my_test_framework

@@ -24,11 +24,25 @@ Test *test_init(const char *name,  TestFunction function);
 void set_current_test_to(Test *test);
 
 /**
+ * @breif       update the current_test status.
+ *
+ * @param status    the boolean to update.
+ */
+void set_current_test_status_to(bool status);
+
+/**
+ * @breif       return the current_test status.
+ */
+bool get_current_test_stattus(void);
+
+/**
  * @breif       return the current_test pointer.
  *
  * @return      return the current_test pointer.
  */
 Test *get_current_test(void);
+
+void print_current_test(void);
 
 #endif // !TEST_INTERNAL_H
 

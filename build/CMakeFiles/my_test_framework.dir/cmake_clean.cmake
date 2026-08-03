@@ -3,6 +3,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_test_framework.dir/src/assertions.c.o.d"
   "CMakeFiles/my_test_framework.dir/src/registry.c.o"
   "CMakeFiles/my_test_framework.dir/src/registry.c.o.d"
+  "CMakeFiles/my_test_framework.dir/src/reporter.c.o"
+  "CMakeFiles/my_test_framework.dir/src/reporter.c.o.d"
+  "CMakeFiles/my_test_framework.dir/src/runner.c.o"
+  "CMakeFiles/my_test_framework.dir/src/runner.c.o.d"
+  "CMakeFiles/my_test_framework.dir/src/test_internal.c.o"
+  "CMakeFiles/my_test_framework.dir/src/test_internal.c.o.d"
   "libmy_test_framework.pdb"
   "libmy_test_framework.so"
 )

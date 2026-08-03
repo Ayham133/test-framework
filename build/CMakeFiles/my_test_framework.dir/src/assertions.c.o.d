@@ -3,7 +3,10 @@ CMakeFiles/my_test_framework.dir/src/assertions.c.o: \
  /usr/include/stdc-predef.h \
  /home/ayham/Desktop/EveryThing/C/test-framework/src/../include/test.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/../internal/test_internal.h \
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/../internal/../include/test.h \
+ /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \

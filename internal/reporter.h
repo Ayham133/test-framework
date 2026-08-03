@@ -31,20 +31,24 @@ void reporter_end_test(void);
  *
  * @param name      the name of the test.
  */
-void reporter_test_run(const char *name);
+void reporter_test_run(void);
 
 /**
  * @breif       print the report on the failed test.
  *
  * @param test      a pointer to the test.
  */
-void reporter_test_failed(struct Test *test);
+void reporter_test_failed(void);
 
 /**
  * @breif       print the report on the succeeded test.
  *
  * @param name      the name of the test.
  */
-void reporter_test_succeeded(const char *name);
+void reporter_test_succeeded(void);
 
+/**
+ * @breif       prints the test summary, total test, number of passed tests, number of failed tests.
+ */
+void reporter_test_summary(void);
 #endif // !REPORTER_H

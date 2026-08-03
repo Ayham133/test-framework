@@ -10,6 +10,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ayham/Desktop/EveryThing/C/test-framework/src/assertions.c" "CMakeFiles/my_test_framework.dir/src/assertions.c.o" "gcc" "CMakeFiles/my_test_framework.dir/src/assertions.c.o.d"
   "/home/ayham/Desktop/EveryThing/C/test-framework/src/registry.c" "CMakeFiles/my_test_framework.dir/src/registry.c.o" "gcc" "CMakeFiles/my_test_framework.dir/src/registry.c.o.d"
+  "/home/ayham/Desktop/EveryThing/C/test-framework/src/reporter.c" "CMakeFiles/my_test_framework.dir/src/reporter.c.o" "gcc" "CMakeFiles/my_test_framework.dir/src/reporter.c.o.d"
+  "/home/ayham/Desktop/EveryThing/C/test-framework/src/runner.c" "CMakeFiles/my_test_framework.dir/src/runner.c.o" "gcc" "CMakeFiles/my_test_framework.dir/src/runner.c.o.d"
+  "/home/ayham/Desktop/EveryThing/C/test-framework/src/test_internal.c" "CMakeFiles/my_test_framework.dir/src/test_internal.c.o" "gcc" "CMakeFiles/my_test_framework.dir/src/test_internal.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

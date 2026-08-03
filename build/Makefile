@@ -214,6 +214,78 @@ src/registry.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/registry.c.s
 .PHONY : src/registry.c.s
 
+src/reporter.o: src/reporter.c.o
+.PHONY : src/reporter.o
+
+# target to build an object file
+src/reporter.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/reporter.c.o
+.PHONY : src/reporter.c.o
+
+src/reporter.i: src/reporter.c.i
+.PHONY : src/reporter.i
+
+# target to preprocess a source file
+src/reporter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/reporter.c.i
+.PHONY : src/reporter.c.i
+
+src/reporter.s: src/reporter.c.s
+.PHONY : src/reporter.s
+
+# target to generate assembly for a file
+src/reporter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/reporter.c.s
+.PHONY : src/reporter.c.s
+
+src/runner.o: src/runner.c.o
+.PHONY : src/runner.o
+
+# target to build an object file
+src/runner.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/runner.c.o
+.PHONY : src/runner.c.o
+
+src/runner.i: src/runner.c.i
+.PHONY : src/runner.i
+
+# target to preprocess a source file
+src/runner.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/runner.c.i
+.PHONY : src/runner.c.i
+
+src/runner.s: src/runner.c.s
+.PHONY : src/runner.s
+
+# target to generate assembly for a file
+src/runner.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/runner.c.s
+.PHONY : src/runner.c.s
+
+src/test_internal.o: src/test_internal.c.o
+.PHONY : src/test_internal.o
+
+# target to build an object file
+src/test_internal.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/test_internal.c.o
+.PHONY : src/test_internal.c.o
+
+src/test_internal.i: src/test_internal.c.i
+.PHONY : src/test_internal.i
+
+# target to preprocess a source file
+src/test_internal.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/test_internal.c.i
+.PHONY : src/test_internal.c.i
+
+src/test_internal.s: src/test_internal.c.s
+.PHONY : src/test_internal.s
+
+# target to generate assembly for a file
+src/test_internal.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/src/test_internal.c.s
+.PHONY : src/test_internal.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -233,6 +305,15 @@ help:
 	@echo "... src/registry.o"
 	@echo "... src/registry.i"
 	@echo "... src/registry.s"
+	@echo "... src/reporter.o"
+	@echo "... src/reporter.i"
+	@echo "... src/reporter.s"
+	@echo "... src/runner.o"
+	@echo "... src/runner.i"
+	@echo "... src/runner.s"
+	@echo "... src/test_internal.o"
+	@echo "... src/test_internal.i"
+	@echo "... src/test_internal.s"
 .PHONY : help
 
 
