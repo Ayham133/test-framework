@@ -3,14 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../internal/test_internal.h"
 
 
-
-struct Test
-{
-    const char *name;
-    TestFunction function;
-};
 
 typedef  struct
 {
@@ -159,10 +154,10 @@ void register_test(TestFunction function, const char *name)
         }
     }
 
-    Registry.tests[Registry.size].function = function;
-    Registry.tests[Registry.size].name     = name;
+    Test *new_test = test_init(name, function);
+    Registry.tests[Registry.size] = *new_test;
     Registry.size++;
-    printf("Registry: Added new test to the registry.\n");
+    // printf("Registry: Added new test to the registry.\n");
 }
 
 
@@ -177,9 +172,6 @@ bool run_all_tests(void)
    if(Registry.size == 0)
         return false;
 
-    printf("========================================\n");
-    printf("Running Tests\n");
-    printf("========================================\n");
 
     
     for(size_t i = 0; i < Registry.size; i++)
@@ -192,9 +184,6 @@ bool run_all_tests(void)
         printf("Ok     : %s\n", current.name);
     }
 
-    printf("========================================\n");
-    printf("End of Tests\n");
-    printf("========================================\n");
 
 
     return true;
