@@ -11,8 +11,6 @@ struct Test
     bool passed;
 };
 
-static Test *current_test;
-
 /**
  * @breif       init test pointer.
  */

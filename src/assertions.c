@@ -1,4 +1,6 @@
 #include "../include/test.h"
+#include "../internal/test_internal.h"
+#include <stdbool.h>
 #include <stdio.h>
 
 
@@ -17,6 +19,8 @@ void test_assert(int condition, const char *str, const char *file, int line)
         printf("\tAssertation failed!!\n");
         printf("\tExpretion: %s\n", str);
         printf("\tFile: %s, at line: %d\n", file, line);
+        Test *current = get_current_test();
+        current->passed = false;
     }
 }
 

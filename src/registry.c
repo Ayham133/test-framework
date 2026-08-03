@@ -12,6 +12,8 @@ typedef  struct
     Test *tests;
     size_t size;
     size_t capacity;
+    size_t failed;
+    size_t passed;
 }TestRegistry;
 
 
@@ -23,6 +25,38 @@ static TestRegistry Registry;
 size_t registry_size(void)
 {
     return Registry.size;
+}
+
+/**
+ * @brief       return the number of passed tests in the Registry.
+ */
+size_t registry_passed_tests(void)
+{
+    return Registry.passed;
+}
+
+/**
+ * @brief       return the number of failed tests in the Registry.
+ */
+size_t registry_failed_tests(void)
+{
+    return Registry.failed;
+}
+
+/**
+ * @brief       increment passed tests counter in the Registry.
+ */
+void registry_inc_passed_tests(void)
+{
+    Registry.passed++;
+}
+
+/**
+ * @brief       increment failed tests counter in the Registry.
+ */
+void registry_inc_failed_tests(void)
+{
+    Registry.failed++;
 }
 
 /**
@@ -161,30 +195,3 @@ void register_test(TestFunction function, const char *name)
 }
 
 
-/**
- * @brief       run all the tests in the registery. and report there status.
- *
- * @param [void]
- * @return [void]
- */
-bool run_all_tests(void)
-{
-   if(Registry.size == 0)
-        return false;
-
-
-    
-    for(size_t i = 0; i < Registry.size; i++)
-    {
-        Test current;
-        bool status = register_get(i, &current);
-
-        printf("Running: %s\n", current.name);
-        current.function();
-        printf("Ok     : %s\n", current.name);
-    }
-
-
-
-    return true;
-}

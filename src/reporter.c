@@ -1,6 +1,4 @@
 #include "../internal/reporter.h"
-#include "../include/test.h"
-#include "../internal/test_internal.h"
 #include <stdio.h>
 
 
@@ -29,7 +27,17 @@ void reporter_end_test(void)
  *
  * @param test      a pointer to the test.
  */
-void reporter_test_run(Test test)
+void reporter_test_run(const char *name)
 {
-       printf("[" YEL "RUN" RESET "   ] %s\n", test.name);
+       printf("[" T_YEL "RUN" RESET "   ] %s\n", name);
+}
+
+/**
+ * @breif       print the report on the succeeded test.
+ *
+ * @param name      the name of the test.
+ */
+void reporter_test_succeeded(const char *name)
+{
+       printf("[" T_GRN "OK" RESET "   ] %s\n", name);
 }
