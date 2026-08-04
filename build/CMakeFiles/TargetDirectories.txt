@@ -2,3 +2,7 @@
 /home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/test_framework.dir
 /home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/edit_cache.dir
 /home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/rebuild_cache.dir
+/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/list_install_components.dir
+/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/install.dir
+/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/install/local.dir
+/home/ayham/Desktop/EveryThing/C/test-framework/build/CMakeFiles/install/strip.dir
