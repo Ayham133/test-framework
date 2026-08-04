@@ -1,7 +1,7 @@
 #include "../include/test.h"
-#include "../internal/registry.h"
-#include "../internal/test_internal.h"
-#include "../internal/reporter.h"
+#include "registry.h"
+#include "test_internal.h"
+#include "reporter.h"
 
 
 void update_current_test_and_report_status()
@@ -13,7 +13,7 @@ void update_current_test_and_report_status()
         registry_inc_passed_tests();
     }
     else{
-        // reporter_test_failed();
+        reporter_test_failed();
         registry_inc_failed_tests();
     }
 

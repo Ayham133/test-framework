@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "../internal/test_internal.h"
+#include "test_internal.h"
 
 
 

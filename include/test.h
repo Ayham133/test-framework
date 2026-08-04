@@ -100,22 +100,6 @@ void test_assert_not_null(void *pointer, const char *str, const char *file, int 
  */
 void register_test(void(*function)(void), const char *name);
 
-/**
- * @brief       returns the number of tests stored in the Registry.
- *
- * @param [void]
- * @return [int]    the number of tests in the Registry.
- */
-int register_count(void);
-
-/**
- * @brief       get a test in the Registry.tests.
- *
- * @param index         the index of the wanted test.
- * @param out_value     a pointer to the address where the tets is needed to be.
- * @return [bool]       return true if the test was found, false if the index was invalide.
- */
-bool register_get(const size_t index, Test *out_value);
 
 /**
  * @brief       run all the tests in the registery. and report there status.

@@ -53,6 +53,22 @@ static bool registry_is_initialized(void);
  */
 static bool registry_resize(void);
 
+/**
+ * @brief       returns the number of tests stored in the Registry.
+ *
+ * @param [void]
+ * @return [int]    the number of tests in the Registry.
+ */
+int register_count(void);
+
+/**
+ * @brief       get a test in the Registry.tests.
+ *
+ * @param index         the index of the wanted test.
+ * @param out_value     a pointer to the address where the tets is needed to be.
+ * @return [bool]       return true if the test was found, false if the index was invalide.
+ */
+bool register_get(const size_t index, Test *out_value);
 
 /**
  * @brief               initiat the Registry with initial values like capacity to 20, size set to be zero, and allocate memory for tests.

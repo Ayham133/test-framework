@@ -1,5 +1,5 @@
-#include "../internal/test_internal.h"
-#include "../internal/reporter.h"
+#include "test_internal.h"
+#include "reporter.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -67,7 +67,7 @@ void print_current_test(void)
 {
     printf("name: %s\nstatus: ", current_test->name);
     if(current_test->passed)
-        printf(T_GRN "Passed" RESET);
+        printf(T_GRN "Passed" T_RESET);
     else
-        printf(T_RED "Failed" RESET);
+        printf(T_RED "Failed" T_RESET);
 }

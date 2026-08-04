@@ -12,7 +12,7 @@
 #define T_WHT "\033[0;37m"
 
 // Reset
-#define RESET "\033[0m"
+#define T_RESET "\033[0m"
 
 #include "../include/test.h"
 
