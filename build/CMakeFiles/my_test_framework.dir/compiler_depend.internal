@@ -4,8 +4,7 @@
 CMakeFiles/my_test_framework.dir/src/assertions.c.o
  /home/ayham/Desktop/EveryThing/C/test-framework/src/assertions.c
  /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/test_internal.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/test_internal.h
  /usr/include/features-time64.h
  /usr/include/features.h
  /usr/include/stdc-predef.h
@@ -37,8 +36,7 @@ CMakeFiles/my_test_framework.dir/src/assertions.c.o
 CMakeFiles/my_test_framework.dir/src/registry.c.o
  /home/ayham/Desktop/EveryThing/C/test-framework/src/registry.c
  /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/test_internal.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/test_internal.h
  /usr/include/alloca.h
  /usr/include/endian.h
  /usr/include/features-time64.h
@@ -98,10 +96,9 @@ CMakeFiles/my_test_framework.dir/src/registry.c.o
 CMakeFiles/my_test_framework.dir/src/reporter.c.o
  /home/ayham/Desktop/EveryThing/C/test-framework/src/reporter.c
  /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/registry.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/reporter.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/test_internal.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/registry.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/reporter.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/test_internal.h
  /usr/include/features-time64.h
  /usr/include/features.h
  /usr/include/stdc-predef.h
@@ -133,10 +130,9 @@ CMakeFiles/my_test_framework.dir/src/reporter.c.o
 CMakeFiles/my_test_framework.dir/src/runner.c.o
  /home/ayham/Desktop/EveryThing/C/test-framework/src/runner.c
  /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/registry.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/reporter.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/test_internal.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/registry.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/reporter.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/test_internal.h
  /usr/include/stdc-predef.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
@@ -144,8 +140,8 @@ CMakeFiles/my_test_framework.dir/src/runner.c.o
 CMakeFiles/my_test_framework.dir/src/test_internal.c.o
  /home/ayham/Desktop/EveryThing/C/test-framework/src/test_internal.c
  /home/ayham/Desktop/EveryThing/C/test-framework/include/test.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/reporter.h
- /home/ayham/Desktop/EveryThing/C/test-framework/internal/test_internal.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/reporter.h
+ /home/ayham/Desktop/EveryThing/C/test-framework/src/test_internal.h
  /usr/include/alloca.h
  /usr/include/endian.h
  /usr/include/features-time64.h

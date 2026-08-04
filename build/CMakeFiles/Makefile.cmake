@@ -40,6 +40,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/test_framework.dir/DependInfo.cmake"
   "CMakeFiles/my_test_framework.dir/DependInfo.cmake"
+  "CMakeFiles/test_framework.dir/DependInfo.cmake"
   )

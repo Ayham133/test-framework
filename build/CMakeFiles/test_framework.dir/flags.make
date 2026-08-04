@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/ayham/Desktop/EveryThing/C/test-framework/include -I/home/ayham/Desktop/EveryThing/C/test-framework/internal
+C_INCLUDES = -I/home/ayham/Desktop/EveryThing/C/test-framework/include
 
-C_FLAGS = -g
+C_FLAGS = -O3 -DNDEBUG -std=gnu99
 

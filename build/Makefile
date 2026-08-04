@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_framework
-
-# Build rule for target.
-test_framework: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_framework
-.PHONY : test_framework
-
-# fast build rule for target.
-test_framework/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/build
-.PHONY : test_framework/fast
-
-#=============================================================================
 # Target rules for targets named my_test_framework
 
 # Build rule for target.
@@ -141,6 +128,19 @@ my_test_framework: cmake_check_build_system
 my_test_framework/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_test_framework.dir/build.make CMakeFiles/my_test_framework.dir/build
 .PHONY : my_test_framework/fast
+
+#=============================================================================
+# Target rules for targets named test_framework
+
+# Build rule for target.
+test_framework: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_framework
+.PHONY : test_framework
+
+# fast build rule for target.
+test_framework/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_framework.dir/build.make CMakeFiles/test_framework.dir/build
+.PHONY : test_framework/fast
 
 example/simple_test.o: example/simple_test.c.o
 .PHONY : example/simple_test.o
