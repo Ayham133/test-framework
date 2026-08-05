@@ -89,7 +89,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/my_test_framework" TYPE FILE FILES "/home/ayham/Desktop/EveryThing/C/test-framework/build/my_test_frameworkConfig.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/my_test_framework" TYPE FILE FILES
+    "/home/ayham/Desktop/EveryThing/C/test-framework/build/my_test_frameworkConfig.cmake"
+    "/home/ayham/Desktop/EveryThing/C/test-framework/build/my_test_frameworkConfigVersion.cmake"
+    )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
