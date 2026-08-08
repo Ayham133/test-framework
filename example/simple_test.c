@@ -28,6 +28,11 @@ TEST(NotNullPointer)
     char *name = "name";
     ASSERT_NOT_NULL(name);
 }
+int eq_int(int x, int y){return x * y + 2;}
+TEST(Equation)
+{
+    ASSERT_EQ_INT(eq_int(1, 5), 5);
+}
 
 int main(void)
 {

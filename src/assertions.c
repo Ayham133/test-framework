@@ -94,9 +94,34 @@ void test_assert_false(int condition, const char *str, const char *file, int lin
 {
     if(condition)
     {
-        printf("\tAssertation failed!!\n");
+        printf("\tAssertation failed\n");
         printf("\tExpretion: %s is True, Expected to be False.\n", str);
         printf("\tFile: %s, at line: %d\n", file, line);
         set_current_test_status_to(false);
     }
+}
+
+/**
+ * @brief       build test, assertion an int equation test with the equation and the expected resutls.
+ *
+ * @param condition         the condition to test for.
+ * @param condition_str     the stringfied version of the condition, used for output.
+ * @param actual            the actual expected resutls for the equation.
+ * @param actual_str        the stringfied version of the actual, used for output.
+ * @param file              the name of the file.
+ * @param line              the line number.
+ *
+ * @Note: this function will edit the status of the current_test variable in src/test_internal.c file.
+ */
+void test_assert_eq_int(int condition, const char *condition_str, int actual, const char *actual_str, const char *file, int line)
+{
+    if (condition != actual) {
+        printf("\tAssertation failed:\n");
+        printf("\t\t%s\n", condition_str);
+        printf("\tActual:\n");
+        printf("\t\t%s\n", actual_str);
+        printf("\tFile: %s, at line: %d\n", file, line);
+        set_current_test_status_to(false);
+    }
+
 }

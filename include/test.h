@@ -36,11 +36,27 @@
 #define ASSERT_NOT_NULL(pointer)   \
     test_assert_not_null((pointer), #pointer, __FILE__, __LINE__);
 
+#define ASSERT_EQ_INT(condition, actual)  \
+    test_assert_eq_int((condition), #condition, actual, #actual, __FILE__, __LINE__);
 
 
 typedef void (*TestFunction)(void);
 
 typedef struct Test Test;
+
+/**
+ * @brief       build test, assertion an int equation test with the equation and the expected resutls.
+ *
+ * @param condition         the condition to test for.
+ * @param condition_str     the stringfied version of the condition, used for output.
+ * @param actual            the actual expected resutls for the equation.
+ * @param actual_str        the stringfied version of the actual, used for output.
+ * @param file              the name of the file.
+ * @param line              the line number.
+ *
+ * @Note: this function will edit the status of the current_test variable in src/test_internal.c file.
+ */
+void test_assert_eq_int(int condition, const char *condition_str, int actual, const char *actual_str, const char *file, int line);
 
 /**
  * @brief   build the test.
