@@ -16,7 +16,7 @@ Test *test_init(const char *name, const char *suit,  TestFunction function)
     Test *new_test = malloc(sizeof(Test));
 
     new_test->name = name;
-    new_test->suit = suit;
+    new_test->suite = suit;
     new_test->function = function;
     new_test->passed = true;
 
@@ -86,18 +86,18 @@ char *get_current_test_name(void)
 }
 
 /**
- * @breif       get the suit of the current test.
+ * @breif       get the suite of the current test.
  *
- * @return [char *]     return the suit of the current test.
+ * @return [char *]     return the suite of the current test.
  * @Note: if current test is NULL, the function will return NULL.
  */
-char *get_current_test_suit()
+char *get_current_test_suite()
 {
     if(current_test == NULL)
         return NULL;
 
     // WARNING: IDK, but fix this.
-    char *temp = current_test->suit;
+    char *temp = current_test->suite;
     return temp;
 }
 

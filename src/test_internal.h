@@ -7,7 +7,7 @@
 struct Test
 {
     const char *name;
-    const char *suit;
+    const char *suite;
     double time;
     TestFunction function;
     bool passed;
@@ -53,12 +53,12 @@ bool get_current_test_stattus(void);
 char *get_current_test_name(void);
 
 /**
- * @breif       get the suit of the current test.
+ * @breif       get the suite of the current test.
  *
- * @return [char *]     return the suit of the current test.
+ * @return [char *]     return the suite of the current test.
  * @Note: if current test is NULL, the function will return NULL.
  */
-char *get_current_test_suit();
+char *get_current_test_suite();
 
 /**
  * @breif       get the time in ms of the current test.

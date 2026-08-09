@@ -1,5 +1,4 @@
 #include "reporter.h"
-#include "../include/test.h"
 #include "registry.h"
 #include "test_internal.h"
 #include <stdio.h>
@@ -33,8 +32,8 @@ void reporter_end_test(void)
 void reporter_test_run()
 {
     const char *name = get_current_test_name();
-    const char *suit = get_current_test_suit();
-    printf("[" T_YEL "RUN" T_RESET  "      ]"  "  %s [%s]\n", name, suit);
+    const char *suite = get_current_test_suite();
+    printf("[" T_YEL "RUN" T_RESET  "      ]"  "  %s [%s]\n", name, suite);
 }
 
 /**
