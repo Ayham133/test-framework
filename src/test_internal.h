@@ -33,9 +33,40 @@ void set_current_test_to(Test *test);
 void set_current_test_status_to(bool status);
 
 /**
+ * @breif       update the current_test time.
+ *
+ * @param time_ms    time in ms.
+ */
+void set_current_test_execution_time_to(double time_ms);
+
+/**
  * @breif       return the current_test status.
  */
 bool get_current_test_stattus(void);
+
+/**
+ * @breif       get the name of the current test.
+ *
+ * @return [char *]     return the name of the current test.
+ * @Note: if current test is NULL, the function will return NULL.
+ */
+char *get_current_test_name(void);
+
+/**
+ * @breif       get the suit of the current test.
+ *
+ * @return [char *]     return the suit of the current test.
+ * @Note: if current test is NULL, the function will return NULL.
+ */
+char *get_current_test_suit();
+
+/**
+ * @breif       get the time in ms of the current test.
+ *
+ * @return [double]     return the time in ms of the current test.
+ * @Note: if current test is NULL, the function will return 0.0
+ */
+double get_current_test_time(void);
 
 /**
  * @breif       return the current_test pointer.

@@ -2,6 +2,7 @@
 #include "registry.h"
 #include "test_internal.h"
 #include "reporter.h"
+#include "timer.h"
 
 
 void update_current_test_and_report_status()
@@ -43,7 +44,9 @@ bool run_all_tests(void)
 
         reporter_test_run();
 
+        timer_start();
         current.function();
+        set_current_test_execution_time_to(timer_end());
 
         update_current_test_and_report_status();
     }

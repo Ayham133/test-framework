@@ -28,6 +28,8 @@ TEST(NotNullPointer, Pointer)
     char *name = "name";
     ASSERT_NOT_NULL(name);
 }
+
+// An Example of Failed Test.
 int eq_int(int x, int y){return x * y + 2;}
 TEST(Equation, Math)
 {

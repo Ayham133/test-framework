@@ -32,19 +32,20 @@ void reporter_end_test(void)
  */
 void reporter_test_run()
 {
-    const char *name = get_current_test()->name;
-    printf("[" T_YEL "RUN" T_RESET  "      ]"  "  %s\n", name);
+    const char *name = get_current_test_name();
+    const char *suit = get_current_test_suit();
+    printf("[" T_YEL "RUN" T_RESET  "      ]"  "  %s [%s]\n", name, suit);
 }
 
 /**
  * @breif       print the report on the succeeded test.
  *
- * @param name      the name of the test.
  */
 void reporter_test_succeeded()
 {
-    const char *name = get_current_test()->name;
-    printf("[     " T_GRN  "PASS" T_RESET "]"  "  %s\n\n", name);
+    const char *name = get_current_test_name();
+    const double time_ms = get_current_test_time();
+    printf("[     " T_GRN  "PASS" T_RESET "]"  "  %s (%.3f ms)\n\n", name, time_ms);
 }
 
 /**
@@ -54,7 +55,7 @@ void reporter_test_succeeded()
  */
 void reporter_test_failed(void)
 {
-    const char *name = get_current_test()->name;
+    const char *name = get_current_test_name();
     printf("[     "     T_RED  "FAIL" T_RESET "]"  "  %s\n\n", name);
 }
 
