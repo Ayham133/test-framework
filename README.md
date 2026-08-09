@@ -12,6 +12,8 @@ The goal of this project is to provide a simple, easy-to-use testing framework w
 - Assertion macros
 - Test runner
 - Test reporting
+- Test suits.
+- Test timing.
 - Shared library support
 - Clean public API (`test.h`)
 
@@ -32,6 +34,8 @@ The goal of this project is to provide a simple, easy-to-use testing framework w
 │   ├── registry.c
 │   ├── reporter.c
 │   ├── runner.c
+│   ├── timer.h
+│   ├── timer.c
 │   └── test_internal.c
 ├── example/
 │   └── simple_test.c
@@ -98,9 +102,8 @@ int main(void)
 Running Tests
 =========================================================
 
-[ RUN    ] Math
-
-[ PASSED ] Math
+[ RUN    ] Subtraction [Math]
+[ PASSED ] Subtraction (0.01 ms)
 
 =========================================================
 Total tests : 1
@@ -128,6 +131,7 @@ Currently implemented:
 - `ASSERT_NULL()`
 - `ASSERT_NOT_NULL()`
 - `ASSERT_EQ()`
+- `ASSERT_EQ_INT()`
 
 More assertions are planned for future releases:
 - `ASSERT_STR_EQ()`
@@ -173,7 +177,7 @@ The user only interacts with the public API exposed by `test.h`.
 Current version:
 
 ```
-v0.1.0
+v0.2.0
 ```
 
 ---
@@ -181,8 +185,6 @@ v0.1.0
 ## Future Plans
 
 - Additional assertion macros
-- Test suites
-- Execution timing
 - Test filtering
 - Fixtures (setup/teardown)
 
