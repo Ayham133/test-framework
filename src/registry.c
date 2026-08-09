@@ -1,8 +1,9 @@
 #include "../include/test.h"
 #include <stddef.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <string.h>
 #include "test_internal.h"
 
 
@@ -14,6 +15,7 @@ typedef  struct
     size_t capacity;
     size_t failed;
     size_t passed;
+    size_t disabled;
 }TestRegistry;
 
 
@@ -44,6 +46,14 @@ size_t registry_failed_tests(void)
 }
 
 /**
+ * @brief       return the number of disabled tests in the Registry.
+ */
+size_t registry_disabled_tests(void)
+{
+    return Registry.disabled;
+}
+
+/**
  * @brief       increment passed tests counter in the Registry.
  */
 void registry_inc_passed_tests(void)
@@ -57,6 +67,13 @@ void registry_inc_passed_tests(void)
 void registry_inc_failed_tests(void)
 {
     Registry.failed++;
+}
+/**
+ * @brief       increment disabled tests counter in the Registry.
+ */
+void registry_inc_disabled_tests(void)
+{
+    Registry.disabled++;
 }
 
 /**
@@ -194,4 +211,57 @@ void register_test(const char *name, const char *suit, TestFunction function)
     Registry.size++;
 }
 
+/**
+ * @brief       allows the user to disable a test by its name.
+ * 
+ * Loop throw the registery and make the
+ * boolean value of disabled to true.
+ *
+ * @param name      the name of the test to be disabled.
+ *
+ * @Note: the function will return if the registery is
+ * empty or the registery does not containe the name of
+ * the test.
+ */
+void disable(const char *name)
+{
+    if(registry_size() == 0)
+        return;
+
+    for(int i = 0; i < Registry.size; i++)
+    {
+        if(strcmp(Registry.tests[i].name, name) == 0)
+        {
+           Registry.tests[i].disabled = true;
+            return;
+        }
+    }
+}
+
+/**
+ * @brief       allows the user to enable a disabled test.
+ *
+ * Loop throw the registery and make the
+ * boolean value of disabled to false.
+ *
+ * @param name  the name of the disabled test to be enabled.
+ *
+ * @Note: the function will return if the registery is
+ * NULL or the registery does not containe the name of
+ * the test.
+ */
+void enable(const char *name)
+{
+    if(registry_size() == 0)
+        return;
+
+    for(int i = 0; i < Registry.size; i++)
+    {
+        if(strcmp(Registry.tests[i].name, name) == 0)
+        {
+            Registry.tests[i].disabled = false;
+            return;
+        }
+    }
+}
 

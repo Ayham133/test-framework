@@ -117,6 +117,33 @@ void test_assert_not_null(void *pointer, const char *str, const char *file, int 
  */
 void register_test(const char *name, const char *suit, void(*function)(void));
 
+/**
+ * @brief       allows the user to disable a test by its name.
+ * 
+ * Loop throw the registery and make the
+ * boolean value of disabled to true.
+ *
+ * @param name      the name of the test to be disabled.
+ *
+ * @Note: the function will return if the registery is
+ * NULL or the registery does not containe the name of
+ * the test.
+ */
+void disable(const char *name);
+
+/**
+ * @brief       allows the user to enable a disabled test.
+ *
+ * Loop throw the registery and make the
+ * boolean value of disabled to false.
+ *
+ * @param name  the name of the disabled test to be enabled.
+ *
+ * @Note: the function will return if the registery is
+ * NULL or the registery does not containe the name of
+ * the test.
+ */
+void enable(const char *name);
 
 /**
  * @brief       run all the tests in the registery. and report there status.

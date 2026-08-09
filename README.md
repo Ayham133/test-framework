@@ -12,8 +12,9 @@ The goal of this project is to provide a simple, easy-to-use testing framework w
 - Assertion macros
 - Test runner
 - Test reporting
-- Test suits.
-- Test timing.
+- Test suits
+- Test timing
+- Test disabling and enabling
 - Shared library support
 - Clean public API (`test.h`)
 
@@ -109,6 +110,7 @@ Running Tests
 Total tests : 1
 Passed      : 1
 Failed      : 0
+Disabled    : 0
 =========================================================
 ```
 

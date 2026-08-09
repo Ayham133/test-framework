@@ -21,6 +21,11 @@ size_t registry_passed_tests(void);
 size_t registry_failed_tests(void);
 
 /**
+ * @brief       return the number of disabled tests in the Registry.
+ */
+size_t registry_disabled_tests(void);
+
+/**
  * @brief       increment passed tests counter in the Registry.
  */
 void registry_inc_passed_tests(void);
@@ -29,6 +34,11 @@ void registry_inc_passed_tests(void);
  * @brief       increment failed tests counter in the Registry.
  */
 void registry_inc_failed_tests(void);
+
+/**
+ * @brief       increment disabled tests counter in the Registry.
+ */
+void registry_inc_disabled_tests(void);
 
 /**
  *

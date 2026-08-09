@@ -30,7 +30,7 @@ TEST(NotNullPointer, Pointer)
 }
 
 // An Example of Failed Test.
-int eq_int(int x, int y){return x * y + 2;}
+int eq_int(int x, int y){return x * y;}
 TEST(Equation, Math)
 {
     ASSERT_EQ_INT(eq_int(1, 5), 5);
@@ -38,6 +38,7 @@ TEST(Equation, Math)
 
 int main(void)
 {
+    disable("equals");
     run_all_tests();
     return EXIT_SUCCESS;
 }

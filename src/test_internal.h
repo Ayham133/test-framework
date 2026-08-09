@@ -11,6 +11,7 @@ struct Test
     double time;
     TestFunction function;
     bool passed;
+    bool disabled;
 };
 
 /**

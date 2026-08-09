@@ -64,8 +64,9 @@ void reporter_test_failed(void)
 void reporter_test_summary(void)
 {
     printf(T_BLU "=============================================\n" T_RESET);
-    printf("Total tests: " T_YEL"%d\n" T_RESET, register_count());
+    printf("Total tests: " "%d\n" T_RESET, register_count());
     printf("Passed: " T_GRN"%zu\n" T_RESET, registry_passed_tests());
     printf("Failed: " T_RED"%zu\n" T_RESET, registry_failed_tests());
+    printf("Disabled: " T_YEL "%zu\n" T_RESET, registry_disabled_tests());
     printf(T_BLU "=============================================\n" T_RESET);
 }

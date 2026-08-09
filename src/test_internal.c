@@ -1,5 +1,5 @@
 #include "test_internal.h"
-#include "reporter.h"
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,6 +19,7 @@ Test *test_init(const char *name, const char *suit,  TestFunction function)
     new_test->suite = suit;
     new_test->function = function;
     new_test->passed = true;
+    new_test->disabled = false;
 
     return new_test;
 }
@@ -127,9 +128,6 @@ Test *get_current_test(void)
 
 void print_current_test(void)
 {
-    printf("name: %s\nstatus: ", current_test->name);
-    if(current_test->passed)
-        printf(T_GRN "Passed" T_RESET);
-    else
-        printf(T_RED "Failed" T_RESET);
+    printf("name: %s\n: ", current_test->name);
+    printf("disabled: %b\n", current_test->disabled);
 }

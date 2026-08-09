@@ -7,7 +7,11 @@
 
 void update_current_test_and_report_status()
 {
-
+    if(get_current_test()->disabled)
+    {
+        registry_inc_disabled_tests();
+        return;
+    }
     if(get_current_test_stattus())
     {
         reporter_test_succeeded();
@@ -32,9 +36,9 @@ bool run_all_tests(void)
         return false;
     
     reporter_begin_test();
+    Test current;
     for(size_t i = 0; i < registry_size(); i++)
     {
-        Test current;
 
         // if the registry_get function failed.
         if(!register_get(i, &current))
@@ -42,6 +46,14 @@ bool run_all_tests(void)
 
         set_current_test_to(&current);
 
+        // skip the test if the current test is disabled
+        if(current.disabled)
+        {
+            update_current_test_and_report_status();
+            continue;
+        }
+
+       
         reporter_test_run();
 
         timer_start();
