@@ -167,8 +167,9 @@ static void registry_error(const char *message)
  *
  * @param   function        a pointer to the test function.
  * @param   name            a string that containes the name of the function.
+ * @param   suit            the suit of the test.
  */
-void register_test(TestFunction function, const char *name)
+void register_test(const char *name, const char *suit, TestFunction function)
 {
     if(!registry_is_initialized())
     {
@@ -188,10 +189,9 @@ void register_test(TestFunction function, const char *name)
         }
     }
 
-    Test *new_test = test_init(name, function);
+    Test *new_test = test_init(name, suit, function);
     Registry.tests[Registry.size] = *new_test;
     Registry.size++;
-    // printf("Registry: Added new test to the registry.\n");
 }
 
 

@@ -7,6 +7,8 @@
 struct Test
 {
     const char *name;
+    const char *suit;
+    double time;
     TestFunction function;
     bool passed;
 };
@@ -14,7 +16,7 @@ struct Test
 /**
  * @breif       init test pointer.
  */
-Test *test_init(const char *name,  TestFunction function);
+Test *test_init(const char *name, const char *suit,  TestFunction function);
 
 /**
  * @breif       set the current test pointer to the current test in the Registry.

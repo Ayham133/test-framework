@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define TEST(name)                          \
+#define TEST(name, suit)                    \
         void test_##name(void);             \
                                             \
         static void register_##name(void)   \
@@ -12,7 +12,7 @@
                                             \
         static void register_##name(void)   \
         {                                   \
-            register_test(test_##name, #name);     \
+            register_test(#name, #suit, test_##name); \
         }                                   \
                                             \
         void test_##name(void)
@@ -113,8 +113,9 @@ void test_assert_not_null(void *pointer, const char *str, const char *file, int 
  *
  * @param   function        a pointer to the test function.
  * @param   name            a string that containes the name of the function.
+ * @param   suit            the suit of the test.
  */
-void register_test(void(*function)(void), const char *name);
+void register_test(const char *name, const char *suit, void(*function)(void));
 
 
 /**

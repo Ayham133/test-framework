@@ -2,34 +2,34 @@
 #include <stdlib.h>
 
 
-TEST(Math)
+TEST(equals, Math)
 {
     ASSERT_TRUE(1 == 1);
 }
 
-TEST(Sub)
+TEST(subtraction, Math)
 {
     ASSERT_EQ( 1 - 1, 0);
 }
 
-TEST(Condition)
+TEST(Condition, Math)
 {
     ASSERT_FALSE(1 == 2);
 }
 
-TEST(NullPointer)
+TEST(NullPointer, Pointer)
 {
     char *name = NULL;
     ASSERT_NULL(name);
 }
 
-TEST(NotNullPointer)
+TEST(NotNullPointer, Pointer)
 {
     char *name = "name";
     ASSERT_NOT_NULL(name);
 }
 int eq_int(int x, int y){return x * y + 2;}
-TEST(Equation)
+TEST(Equation, Math)
 {
     ASSERT_EQ_INT(eq_int(1, 5), 5);
 }

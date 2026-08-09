@@ -8,7 +8,7 @@ static Test *current_test;
 /**
  * @breif       init test pointer.
  */
-Test *test_init(const char *name,  TestFunction function)
+Test *test_init(const char *name, const char *suit,  TestFunction function)
 {
     if(function == NULL)
         return NULL;
@@ -16,6 +16,7 @@ Test *test_init(const char *name,  TestFunction function)
     Test *new_test = malloc(sizeof(Test));
 
     new_test->name = name;
+    new_test->suit = suit;
     new_test->function = function;
     new_test->passed = true;
 
