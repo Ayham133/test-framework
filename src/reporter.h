@@ -47,6 +47,8 @@ void reporter_test_failed(void);
  */
 void reporter_test_succeeded(void);
 
+void reporter_no_suites_were_found(const char *suite);
+
 /**
  * @breif       prints the test summary, total test, number of passed tests, number of failed tests.
  */

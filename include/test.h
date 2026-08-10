@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define TEST(name, suit)                    \
+#define TEST(name, suite)                    \
         void test_##name(void);             \
                                             \
         static void register_##name(void)   \
@@ -12,7 +12,7 @@
                                             \
         static void register_##name(void)   \
         {                                   \
-            register_test(#name, #suit, test_##name); \
+            register_test(#name, #suite, test_##name); \
         }                                   \
                                             \
         void test_##name(void)
@@ -120,7 +120,7 @@ void register_test(const char *name, const char *suit, void(*function)(void));
 /**
  * @brief       allows the user to disable a test by its name.
  * 
- * Loop throw the registery and make the
+ * Loop through the registery and make the
  * boolean value of disabled to true.
  *
  * @param name      the name of the test to be disabled.
@@ -134,7 +134,7 @@ void disable(const char *name);
 /**
  * @brief       allows the user to enable a disabled test.
  *
- * Loop throw the registery and make the
+ * Loop through the registery and make the
  * boolean value of disabled to false.
  *
  * @param name  the name of the disabled test to be enabled.
@@ -144,6 +144,23 @@ void disable(const char *name);
  * the test.
  */
 void enable(const char *name);
+
+/**
+ * @brief       filters specific test suite in the registery.
+ *
+ * Loop through the registery and make any test with different suite than
+ * this specific suit, disabled.
+ *
+ * @example: if the user filter_suite(Math),
+ * then the runner will only run the tests with a suite "Math"
+ *
+ * @param suite     the specific suite to filter for
+ *
+ * @Note: the function will return if the registery is
+ * empty(aka, doesn't containe any tests) or this specific
+ * wasn't found in the registery.
+ */
+void filter_suite(const char *suite);
 
 /**
  * @brief       run all the tests in the registery. and report there status.

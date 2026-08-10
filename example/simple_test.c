@@ -29,16 +29,11 @@ TEST(NotNullPointer, Pointer)
     ASSERT_NOT_NULL(name);
 }
 
-// An Example of Failed Test.
-int eq_int(int x, int y){return x * y;}
-TEST(Equation, Math)
-{
-    ASSERT_EQ_INT(eq_int(1, 5), 5);
-}
 
 int main(void)
 {
-    disable("equals");
+    disable("NullPointer");
+    filter_suite("Pointer");
     run_all_tests();
     return EXIT_SUCCESS;
 }

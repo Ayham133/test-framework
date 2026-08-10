@@ -81,6 +81,23 @@ int register_count(void);
 bool register_get(const size_t index, Test *out_value);
 
 /**
+ * @brief       check if the Registry tests containes this suite.
+ *
+ * Loop through the Registry.tests and check
+ * if one of the tests containes this suite.
+ *
+ * @param suite     the suite to search for.
+ *
+ * @Note: this function will return false if the
+ * Registry is empty (aka doesn't have any tests)
+ * or if this suite is either NULL or '\0'
+ *
+ * @return [bool]       return ture if Registry.tets
+ *                      containes this suite, false otherwise
+ */
+bool registry_contains_suite(const char *suite);
+
+/**
  * @brief               initiat the Registry with initial values like capacity to 20, size set to be zero, and allocate memory for tests.
  *
  * @param [void]

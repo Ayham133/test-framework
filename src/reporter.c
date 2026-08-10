@@ -70,3 +70,8 @@ void reporter_test_summary(void)
     printf("Disabled: " T_YEL "%zu\n" T_RESET, registry_disabled_tests());
     printf(T_BLU "=============================================\n" T_RESET);
 }
+
+void reporter_no_suites_were_found(const char *suite)
+{
+    printf(T_RED "No tests found for suite '%s'.\n" T_RESET, suite);
+}

@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "reporter.h"
 #include "test_internal.h"
 
 
@@ -186,7 +187,7 @@ static void registry_error(const char *message)
  * @param   name            a string that containes the name of the function.
  * @param   suit            the suit of the test.
  */
-void register_test(const char *name, const char *suit, TestFunction function)
+void register_test(const char *name, const char *suite, TestFunction function)
 {
     if(!registry_is_initialized())
     {
@@ -206,9 +207,37 @@ void register_test(const char *name, const char *suit, TestFunction function)
         }
     }
 
-    Test *new_test = test_init(name, suit, function);
+    Test *new_test = test_init(name, suite, function);
     Registry.tests[Registry.size] = *new_test;
     Registry.size++;
+}
+
+/**
+ * @brief       check if the Registry tests containes this suite.
+ *
+ * Loop through the Registry.tests and check
+ * if one of the tests containes this suite.
+ *
+ * @param suite     the suite to search for.
+ *
+ * @Note: this function will return false if the
+ * Registry is empty (aka doesn't have any tests)
+ * or if this suite is either NULL or '\0'
+ *
+ * @return [bool]       return ture if Registry.tets
+ *                      containes this suite, false otherwise
+ */
+bool registry_contains_suite(const char *suite)
+{
+    if(registry_size() == 0 || suite == NULL || suite[0] == '\0')
+        return false;
+    
+    for (int i = 0; i < Registry.size; i++) {
+        if(strcmp(Registry.tests[i].suite, suite) == 0)// is the same
+            return true;
+    }
+
+    return false;// the Registry.tets doesn't containe this suite.
 }
 
 /**
@@ -225,14 +254,12 @@ void register_test(const char *name, const char *suit, TestFunction function)
  */
 void disable(const char *name)
 {
-    if(registry_size() == 0)
+    if (registry_size() == 0 || name == NULL || name[0] == '\0')
         return;
 
-    for(int i = 0; i < Registry.size; i++)
-    {
-        if(strcmp(Registry.tests[i].name, name) == 0)
-        {
-           Registry.tests[i].disabled = true;
+    for (int i = 0; i < Registry.size; i++) {
+        if (strcmp(Registry.tests[i].name, name) == 0) {
+            Registry.tests[i].disabled = true;
             return;
         }
     }
@@ -252,7 +279,7 @@ void disable(const char *name)
  */
 void enable(const char *name)
 {
-    if(registry_size() == 0)
+    if (registry_size() == 0 || name == NULL || name[0] == '\0')
         return;
 
     for(int i = 0; i < Registry.size; i++)
@@ -265,3 +292,37 @@ void enable(const char *name)
     }
 }
 
+/**
+ * @brief       filters specific test suite in the registery.
+ *
+ * Loop through the registery and make any test with different suite than
+ * this specific suit, disabled.
+ *
+ * @example: if the user filter_suite(Math),
+ * then any other test with different suite will be disabled.
+ *
+ * @param suite     the specific suite to filter for
+ *
+ * @Note: the function will return if the registery is
+ * empty(aka, doesn't containe any tests) or this specific
+ * wasn't found in the registery.
+ */
+void filter_suite(const char *suite)
+{
+    if(registry_size() == 0 || suite == NULL || suite[0] == '\0')
+        return;
+
+    if(!registry_contains_suite(suite))
+    {
+        reporter_no_suites_were_found(suite);
+        return;
+    }
+    for(int i = 0; i < Registry.size; i++)
+    {
+        if(strcmp(Registry.tests[i].suite, suite) != 0)// isn't the same
+        {
+            Registry.tests[i].disabled = true;
+        }
+    }
+
+}

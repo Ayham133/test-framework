@@ -34,7 +34,7 @@ bool run_all_tests(void)
 {
     if(registry_size() == 0)
         return false;
-    
+
     reporter_begin_test();
     Test current;
     for(size_t i = 0; i < registry_size(); i++)
