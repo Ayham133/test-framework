@@ -17,6 +17,7 @@ TEST(equals, Math)
 
 int main(void)
 {
+    filter_suite("Math");
     run_all_tests();
     return EXIT_SUCCESS;
 }

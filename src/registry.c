@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "reporter.h"
 #include "test_internal.h"
 
 
@@ -84,12 +83,44 @@ void registry_inc_disabled_tests(void)
  * @param out_value     a pointer to the address where the tets is needed to be.
  * @return [bool]       return true if the test was found, false if the index was invalide.
  */
-bool register_get(const size_t index, Test *out_value)
+bool registry_get(const size_t index, Test *out_value)
 {
     if(index > Registry.size)
         return false;
 
     *out_value = Registry.tests[index];
+    return true;
+}
+
+/**
+ * @brief       update a test in the Registry.
+ *
+ * Loop through the Registry till we reach the index,
+ * then, set all the old values of the old tests to
+ * the new test's values.
+ *
+ * @param index     the index of the wanted test.
+ * @param new_value     the test that we will update the old test with.
+ *
+ * @Note: this function will return false if the Registry
+ * is empty, or if the index is invalid , or if the new_value is NULL,
+ * or if any other error happend.
+ *
+ * @return [bool]       return true if there is no errors, false otherwise.
+ */
+bool registry_set(const size_t index, const Test *new_value)
+{
+    if(registry_size() == 0 || (index < 0 || index >= registry_size()) || new_value == NULL)
+        return false;
+
+    if(strcpy(Registry.tests[index].suite, new_value->suite))
+        return false;
+    if(strcpy(Registry.tests[index].name, new_value->name))
+        return false;
+
+    Registry.tests[index].disabled = new_value->disabled;
+    Registry.tests[index].function = new_value->function;
+    Registry.tests[index].passed   = new_value->passed;
     return true;
 }
 
@@ -290,39 +321,4 @@ void enable(const char *name)
             return;
         }
     }
-}
-
-/**
- * @brief       filters specific test suite in the registery.
- *
- * Loop through the registery and make any test with different suite than
- * this specific suit, disabled.
- *
- * @example: if the user filter_suite(Math),
- * then any other test with different suite will be disabled.
- *
- * @param suite     the specific suite to filter for
- *
- * @Note: the function will return if the registery is
- * empty(aka, doesn't containe any tests) or this specific
- * wasn't found in the registery.
- */
-void filter_suite(const char *suite)
-{
-    if(registry_size() == 0 || suite == NULL || suite[0] == '\0')
-        return;
-
-    if(!registry_contains_suite(suite))
-    {
-        reporter_no_suites_were_found(suite);
-        return;
-    }
-    for(int i = 0; i < Registry.size; i++)
-    {
-        if(strcmp(Registry.tests[i].suite, suite) != 0)// isn't the same
-        {
-            Registry.tests[i].disabled = true;
-        }
-    }
-
 }

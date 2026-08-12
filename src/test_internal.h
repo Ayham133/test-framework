@@ -6,8 +6,8 @@
 
 struct Test
 {
-    const char *name;
-    const char *suite;
+    char *name;
+    char *suite;
     double time;
     TestFunction function;
     bool passed;

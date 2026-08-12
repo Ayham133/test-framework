@@ -41,7 +41,7 @@ bool run_all_tests(void)
     {
 
         // if the registry_get function failed.
-        if(!register_get(i, &current))
+        if(!registry_get(i, &current))
             continue;
 
         set_current_test_to(&current);

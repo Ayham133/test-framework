@@ -81,7 +81,6 @@ char *get_current_test_name(void)
     if(current_test == NULL)
         return NULL;
 
-    // WARNING: IDK, but fix this.
     char *temp = current_test->name;
     return temp;
 }
@@ -97,7 +96,6 @@ char *get_current_test_suite()
     if(current_test == NULL)
         return NULL;
 
-    // WARNING: IDK, but fix this.
     char *temp = current_test->suite;
     return temp;
 }

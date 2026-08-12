@@ -19,6 +19,7 @@ add_library(my_test_framework SHARED
     src/runner.c
     src/test_internal.c
     src/timer.c
+    src/filter.c
 )
 
 # Public include directory

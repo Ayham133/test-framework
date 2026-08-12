@@ -78,7 +78,25 @@ int register_count(void);
  * @param out_value     a pointer to the address where the tets is needed to be.
  * @return [bool]       return true if the test was found, false if the index was invalide.
  */
-bool register_get(const size_t index, Test *out_value);
+bool registry_get(const size_t index, Test *out_value);
+
+/**
+ * @brief       update a test in the Registry.
+ *
+ * Loop through the Registry till we reach the index,
+ * then, set all the old values of the old tests to
+ * the new test's values.
+ *
+ * @param index     the index of the wanted test.
+ * @param new_value     the test that we will update the old test with.
+ *
+ * @Note: this function will return false if the Registry
+ * is empty, or if the index is invalid , or if the new_value is NULL
+ * or if any other error happend.
+ *
+ * @return [bool]       return true if there is no errors, false otherwise.
+ */
+bool registry_set(const size_t index, const Test *new_value);
 
 /**
  * @brief       check if the Registry tests containes this suite.
