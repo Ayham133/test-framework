@@ -92,37 +92,6 @@ bool registry_get(const size_t index, Test *out_value)
     return true;
 }
 
-/**
- * @brief       update a test in the Registry.
- *
- * Loop through the Registry till we reach the index,
- * then, set all the old values of the old tests to
- * the new test's values.
- *
- * @param index     the index of the wanted test.
- * @param new_value     the test that we will update the old test with.
- *
- * @Note: this function will return false if the Registry
- * is empty, or if the index is invalid , or if the new_value is NULL,
- * or if any other error happend.
- *
- * @return [bool]       return true if there is no errors, false otherwise.
- */
-bool registry_set(const size_t index, const Test *new_value)
-{
-    if(registry_size() == 0 || (index < 0 || index >= registry_size()) || new_value == NULL)
-        return false;
-
-    if(strcpy(Registry.tests[index].suite, new_value->suite))
-        return false;
-    if(strcpy(Registry.tests[index].name, new_value->name))
-        return false;
-
-    Registry.tests[index].disabled = new_value->disabled;
-    Registry.tests[index].function = new_value->function;
-    Registry.tests[index].passed   = new_value->passed;
-    return true;
-}
 
 /**
  * @brief       returns the number of tests stored in the Registry.

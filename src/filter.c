@@ -41,7 +41,7 @@ static SuiteFilter Filter;
  *
  * @Note: the function will return if the registery is
  * empty(aka, doesn't containe any tests) or this specific
- * wasn't found in the registery.
+ * suite wasn't found in the registery.
  */
 void filter_suite(const char *suite)
 {
@@ -61,8 +61,7 @@ void filter_suite(const char *suite)
 
         if(strcmp(current.suite, suite) != 0)// isn't the same
         {
-            current.disabled = true;
-            registry_set(i, &current);
+            disable(current.name);
         }
     }
 }

@@ -14,10 +14,15 @@ TEST(equals, Math)
     ASSERT_TRUE(1 == 1);
 }
 
+TEST(null_test, Null)
+{
+    ASSERT_NULL(NULL);
+}
+
 
 int main(void)
 {
-    filter_suite("Math");
+    filter_suite("Null");
     run_all_tests();
     return EXIT_SUCCESS;
 }
