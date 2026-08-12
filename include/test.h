@@ -22,7 +22,7 @@
     register_test(name, #name);
 
 #define ASSERT_TRUE(condition)  \
-    test_assert((condition), #condition, __FILE__, __LINE__);
+    test_assert_true((condition), #condition, __FILE__, __LINE__);
 
 #define ASSERT_FALSE(condition) \
     test_assert_false((condition), #condition, __FILE__, __LINE__);
@@ -66,7 +66,7 @@ void test_assert_eq_int(int condition, const char *condition_str, int actual, co
  * @param file          the name of the file.
  * @param line          the line number.
  */
-void test_assert(int condition, const char *str, const char *file, int line);
+void test_assert_true(int condition, const char *str, const char *file, int line);
 
 /**
  * @brief   build the test.
