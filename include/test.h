@@ -44,6 +44,8 @@ typedef void (*TestFunction)(void);
 
 typedef struct Test Test;
 
+typedef struct SuiteGroup SuiteGroup;
+
 /**
  * @brief       build test, assertion an int equation test with the equation and the expected resutls.
  *
@@ -161,6 +163,19 @@ void enable(const char *name);
  * wasn't found in the registery.
  */
 void filter_suite(const char *suite);
+
+/**
+ *
+ * @brief       initiate a suite group.
+ *
+ * Allocating new memory for a suite group.
+ *
+ * @param [void]
+ * @return      return the pointer for the new SuiteGroup.
+ *
+ * @Note:
+ */
+SuiteGroup *suite_group_init();
 
 /**
  * @brief       run all the tests in the registery. and report there status.

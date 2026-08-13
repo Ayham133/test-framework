@@ -1,4 +1,3 @@
-
 /**
  *
  * @file: filter.c
@@ -12,7 +11,6 @@
 
 
 #include <stddef.h>
-#include <stdlib.h>
 #include <string.h>
 
 #include "../include/test.h"
@@ -20,19 +18,12 @@
 #include "reporter.h"
 #include "test_internal.h"
 
-typedef struct SuiteFilter{
-    char **suites;
-    size_t number_of_suites;
-}SuiteFilter;
-
-
-static SuiteFilter Filter;
 
 /**
  * @brief       filters specific test suite in the registery.
  *
  * Loop through the registery and make any test with different suite than
- * this specific suit, disabled.
+ * this specific suite, disabled.
  *
  * @example: if the user filter_suite(Math),
  * then any other test with different suite will be disabled.
