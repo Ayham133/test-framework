@@ -8,6 +8,7 @@
 
 #include "../include/test.h"
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct Suite
 {
@@ -17,6 +18,7 @@ typedef struct Suite
 typedef struct SuiteGroup
 {
     Suite *suites;
+    size_t capacity;
     size_t number_of_suites;
 }SuiteGroup;
 
@@ -34,7 +36,96 @@ typedef struct SuiteGroup
 SuiteGroup *suite_group_init()
 {
     SuiteGroup *new_suite_group = malloc(sizeof(SuiteGroup));
+    if(new_suite_group == NULL)
+        return NULL;
 
+    new_suite_group->capacity = 10;
     new_suite_group->number_of_suites = 0;
-    
+    new_suite_group->suites = malloc(sizeof(Suite) * new_suite_group->capacity);
+
+    return new_suite_group;
+}
+
+/**
+ * @brife       check if this suite_group is full or not.
+ *
+ * @return [bool]   return true if this suite group is full, false otherwise.
+ *
+ * @Note: this function will return false if this suite_group is Null, or 
+ * any other errors.
+ */
+bool suite_group_is_full(SuiteGroup *suite_group)
+{
+    return suite_group->number_of_suites == suite_group->capacity;
+}
+
+/**
+ * @brife       check if this suite_group is empty or not.
+ *
+ * @return [bool]   return true if this suite group is empty, false otherwise.
+ *
+ * @Note: this function will return false if this suite_group is Null, or 
+ * any other errors.
+ */
+bool suite_group_is_empty(SuiteGroup *suite_group){return suite_group->number_of_suites == 0;}
+
+/**
+ * @brife       get the requeseted suite from this suite_group list
+ *
+ * After authenticating the index and this suite_group list, return the
+ * suite at the requeseted index
+ *
+ * @param suite_group       this suite_group requeseted
+ * @param index             the index requeseted
+ * @param out_value         the place where the requeseted suite will be stored
+ *
+ * @return [bool]           return true if there were no errors, false otherwise.
+ *
+ * @Note: this function will return false, if this suite_group is null or empyt,
+ * and this function will returh false if the index is out of bound, and if the
+ * out_value is null
+ */
+bool suite_group_get(SuiteGroup *suite_group, unsigned index, Suite *out_value)
+{
+    if(suite_group == NULL || suite_group_is_empty(suite_group) || index >= suite_group->number_of_suites)
+        return false;
+
+    *out_value = suite_group->suites[index];
+    return true;
+}
+
+/**
+ * @brief       add a new suite to this suite_group
+ *
+ * allcoate memory for a new Suite and if the suite_group
+ * is full, resize it and then add the new suite.
+ *
+ * @param suite_group       the list to add to.
+ * @param suite             the name of the suite that will be added.
+ *
+ * @return [bool]           return ture if the adding process successeded
+ *                          false otherwise.
+ *
+ * @Note: this function will return false if this suite_group is null or empyt,
+ * or if the suite string is null or '\0', and this function will return false
+ * for any other errors.
+ */
+bool suite_group_add(SuiteGroup *suite_group, const char *suite)
+{
+    if(suite_group == NULL || suite == NULL || suite[0] == '\0')
+        return false;
+
+    Suite *new_suite = malloc(sizeof(Suite));
+    strcpy(new_suite->name, suite);
+
+    if(suite_group_is_empty(suite_group))
+    {
+        suite_group->suites[0] = *new_suite;
+        suite_group->number_of_suites++;
+        return true;
+    }
+    unsigned size = suite_group->number_of_suites;
+    suite_group->suites[size] = *new_suite;
+    suite_group->number_of_suites++;
+    return true;
 }

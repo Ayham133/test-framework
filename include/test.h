@@ -178,6 +178,24 @@ void filter_suite(const char *suite);
 SuiteGroup *suite_group_init();
 
 /**
+ * @brief       add a new suite to this suite_group
+ *
+ * allcoate memory for a new Suite and if the suite_group
+ * is full, resize it and then add the new suite.
+ *
+ * @param suite_group       the list to add to.
+ * @param suite             the name of the suite that will be added.
+ *
+ * @return [bool]           return ture if the adding process successeded
+ *                          false otherwise.
+ *
+ * @Note: this function will return false if this suite_group is null or empyt,
+ * or if the suite string is null or '\0', and this function will return false
+ * for any other errors.
+ */
+bool suite_group_add(SuiteGroup *suite_group, const char *suite);
+
+/**
  * @brief       run all the tests in the registery. and report there status.
  *
  * @param [void]
