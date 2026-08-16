@@ -14,6 +14,7 @@
 #include <string.h>
 
 #include "../include/test.h"
+#include "suite.h"
 #include "registry.h"
 #include "reporter.h"
 #include "test_internal.h"
@@ -44,13 +45,14 @@ void filter_suite(const char *suite)
         reporter_no_suites_were_found(suite);
         return;
     }
+
     Test current;
     for(int i = 0; i < registry_size(); i++)
     {
         if(!registry_get(i, &current))
             continue;
 
-        if(strcmp(current.suite, suite) != 0)// isn't the same
+        if(strcmp(suite_get_name(current.suite), suite) != 0)// isn't the same
         {
             disable(current.name);
         }

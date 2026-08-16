@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "test_internal.h"
-
+#include "suite.h"
 
 
 typedef  struct
@@ -233,7 +233,7 @@ bool registry_contains_suite(const char *suite)
         return false;
     
     for (int i = 0; i < Registry.size; i++) {
-        if(strcmp(Registry.tests[i].suite, suite) == 0)// is the same
+        if(strcmp(suite_get_name(Registry.tests[i].suite), suite) == 0)// is the same
             return true;
     }
 

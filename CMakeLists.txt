@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 project(test-framework
-    VERSION 0.1.0
+    VERSION 0.2.0
     LANGUAGES C
 )
 
@@ -14,6 +14,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 add_library(my_test_framework SHARED
     src/assertions.c
+    src/suite.c
     src/registry.c
     src/reporter.c
     src/runner.c

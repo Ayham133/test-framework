@@ -9,7 +9,34 @@
 typedef struct Suite Suite;
 
 /**
- * @brife       check if this suite_group is full or not.
+ * @brief       initiate suite
+ *
+ * Allocate memory for the suite struct.
+ *
+ * @param name      the name of the suite
+ *
+ * @return      return the pointer for the new suite
+ *
+ * @Note: this function will return NULL if the allocation failed,
+ * or if the string name is NULL or '\0'.
+ */
+Suite *suite_init(const char *name);
+
+/**
+ * @brief       get the name of the requeseted suite.
+ *
+ * @param suite         pointer to the requeseted suite
+ *
+ * @return              return the name of the requeseted suite.
+ * @Note: this function will return NULL if the suite is Null,
+ */
+char *suite_get_name(Suite *suite);
+
+
+typedef struct SuiteGroup SuiteGroup;
+
+/**
+ * @brief       check if this suite_group is full or not.
  *
  * @return [bool]   return true if this suite group is full, false otherwise.
  *
@@ -19,7 +46,7 @@ typedef struct Suite Suite;
 bool suite_group_is_full(SuiteGroup *suite_group);
 
 /**
- * @brife       check if this suite_group is empty or not.
+ * @brief       check if this suite_group is empty or not.
  *
  * @return [bool]   return true if this suite group is empty, false otherwise.
  *
@@ -29,7 +56,7 @@ bool suite_group_is_full(SuiteGroup *suite_group);
 bool suite_group_is_empty(SuiteGroup *suite_group);
 
 /**
- * @brife       get the requeseted suite from this suite_group list
+ * @brief       get the requeseted suite from this suite_group list
  *
  * After authenticating the index and this suite_group list, return the
  * suite at the requeseted index

@@ -1,4 +1,5 @@
 #include "test_internal.h"
+#include "suite.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,8 +17,11 @@ Test *test_init(const char *name, const char *suit,  TestFunction function)
 
     Test *new_test = malloc(sizeof(Test));
 
-    new_test->name = name;
-    new_test->suite = strdup(suit);
+    new_test->name = malloc(strlen(name) + 1);
+    strcpy(new_test->name, name);
+
+    new_test->suite = suite_init(suit);
+
     new_test->function = function;
     new_test->passed = true;
     new_test->disabled = false;
@@ -82,8 +86,7 @@ char *get_current_test_name(void)
     if(current_test == NULL)
         return NULL;
 
-    char *temp = strdup(current_test->name);
-    return temp;
+    return current_test->name;
 }
 
 /**
@@ -97,8 +100,7 @@ char *get_current_test_suite()
     if(current_test == NULL)
         return NULL;
 
-    char *temp = current_test->suite;
-    return temp;
+    return suite_get_name(current_test->suite);
 }
 
 /**

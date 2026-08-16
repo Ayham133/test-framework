@@ -15,6 +15,50 @@ typedef struct Suite
     char *name;
 }Suite;
 
+/**
+ * @brief       initiate suite
+ *
+ * Allocate memory for the suite struct.
+ *
+ * @param name      the name of the suite
+ *
+ * @return      return the pointer for the new suite
+ *
+ * @Note: this function will return NULL if the allocation failed,
+ * or if the string name is NULL or '\0'.
+ */
+Suite *suite_init(const char *name)
+{
+    if(name == NULL || name[0] == '\0')
+        return NULL;
+
+    Suite *new_suite = malloc(sizeof(Suite));
+
+    if(new_suite == NULL)
+        return  NULL;
+
+    new_suite->name = malloc(strlen(name) + 1);
+    strcpy(new_suite->name, name);
+
+    return new_suite;
+}
+
+/**
+ * @brief       get the name of the requeseted suite.
+ *
+ * @param suite         pointer to the requeseted suite
+ *
+ * @return              return the name of the requeseted suite.
+ * @Note: this function will return NULL if the suite is Null,
+ */
+char *suite_get_name(Suite *suite)
+{
+    if(suite == NULL)
+        return NULL;
+
+    return suite->name;
+}
+
 typedef struct SuiteGroup
 {
     Suite *suites;
@@ -115,8 +159,7 @@ bool suite_group_add(SuiteGroup *suite_group, const char *suite)
     if(suite_group == NULL || suite == NULL || suite[0] == '\0')
         return false;
 
-    Suite *new_suite = malloc(sizeof(Suite));
-    strcpy(new_suite->name, suite);
+    Suite *new_suite = suite_init(suite);
 
     if(suite_group_is_empty(suite_group))
     {

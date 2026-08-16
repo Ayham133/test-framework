@@ -2,12 +2,13 @@
 #define TEST_INTERNAL_H
 
 #include "../include/test.h"
+#include "suite.h"
 #include <stddef.h>
 
 struct Test
 {
-    const char *name;
-    char *suite;
+    char *name;
+    Suite *suite;
     double time;
     TestFunction function;
     bool passed;
