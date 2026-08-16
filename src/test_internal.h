@@ -6,7 +6,7 @@
 
 struct Test
 {
-    char *name;
+    const char *name;
     char *suite;
     double time;
     TestFunction function;

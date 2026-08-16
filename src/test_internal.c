@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 static Test *current_test;
 
@@ -16,7 +17,7 @@ Test *test_init(const char *name, const char *suit,  TestFunction function)
     Test *new_test = malloc(sizeof(Test));
 
     new_test->name = name;
-    new_test->suite = suit;
+    new_test->suite = strdup(suit);
     new_test->function = function;
     new_test->passed = true;
     new_test->disabled = false;
@@ -81,7 +82,7 @@ char *get_current_test_name(void)
     if(current_test == NULL)
         return NULL;
 
-    char *temp = current_test->name;
+    char *temp = strdup(current_test->name);
     return temp;
 }
 
