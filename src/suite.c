@@ -113,6 +113,7 @@ bool suite_group_is_full(SuiteGroup *suite_group)
  */
 bool suite_group_is_empty(SuiteGroup *suite_group){return suite_group->number_of_suites == 0;}
 
+// BUG: This Function is a Cluster Fuck
 /**
  * @brife       get the requeseted suite from this suite_group list
  *
@@ -131,7 +132,9 @@ bool suite_group_is_empty(SuiteGroup *suite_group){return suite_group->number_of
  */
 bool suite_group_get(SuiteGroup *suite_group, unsigned index, Suite *out_value)
 {
-    if(suite_group == NULL || suite_group_is_empty(suite_group) || index >= suite_group->number_of_suites)
+    if(suite_group == NULL || suite_group_is_empty(suite_group) 
+        || index >= suite_group->number_of_suites
+        || out_value == NULL)
         return false;
 
     *out_value = suite_group->suites[index];
@@ -171,4 +174,21 @@ bool suite_group_add(SuiteGroup *suite_group, const char *suite)
     suite_group->suites[size] = *new_suite;
     suite_group->number_of_suites++;
     return true;
+}
+
+/**
+ * @brief       get the size of the requeseted group
+ *
+ * @param group     the requeseted group
+ * @return          return the size of the requeseted group.
+ *
+ * @Note: this function will return zero if the group is NULL,
+ * or empty.
+ */
+unsigned suite_group_size(SuiteGroup *group)
+{
+    if(group == NULL)
+        return 0;
+
+    return group->number_of_suites;
 }

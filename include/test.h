@@ -165,6 +165,24 @@ void enable(const char *name);
 void filter_suite(const char *suite);
 
 /**
+ * @brief       filters specific suite group in the registery.
+ *
+ * Loop through the registery and make any test with different suite than
+ * any of the suites in this group disabled.
+ *
+ * @example: if the user filter_suite_group(group1),
+ * and group1 = {"Math", "Pointers"}, then the runner
+ * will only run the tests with a suite "Math" and "Pointers"
+ *
+ * @param group     the group to filter by
+ *
+ * @Note: the function will return if the registery is
+ * empty(aka, doesn't containe any tests) or this specific
+ * suite group wasn't found in the registery.
+ */
+void filter_suite_group(SuiteGroup *group);
+
+/**
  *
  * @brief       initiate a suite group.
  *

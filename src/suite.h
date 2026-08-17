@@ -72,3 +72,14 @@ bool suite_group_is_empty(SuiteGroup *suite_group);
  * out_value is null
  */
 bool suite_group_get(SuiteGroup *suite_group, unsigned index, Suite *out_value);
+
+/**
+ * @brief       get the size of the requeseted group
+ *
+ * @param group     the requeseted group
+ * @return          return the size of the requeseted group.
+ *
+ * @Note: this function will return zero if the group is NULL,
+ * or empty.
+ */
+unsigned suite_group_size(SuiteGroup *group);

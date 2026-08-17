@@ -291,3 +291,37 @@ void enable(const char *name)
         }
     }
 }
+
+/**
+ * @brief       check if the Registry tests containes this suite group.
+ *
+ * Loop through the Registry.tests and check
+ * if one of the tests containes this suite.
+ *
+ * @param group     the group to search for.
+ *
+ * @Note: this function will return false if the
+ * Registry is empty (aka doesn't have any tests)
+ * or if this suite is either NULL or empty
+ *
+ * @return [bool]       return ture if Registry.tets
+ *                      containes this all the suite group, false otherwise
+ */
+bool registry_contains_suite_group(SuiteGroup *group)
+{
+    if(registry_size() == 0 || group == NULL)
+        return false;
+
+    Test *current;
+    Suite *suite;
+    for (int j = 0; j < suite_group_size(group); j++) {
+
+        if(!suite_group_get(group, j, suite))
+            continue;
+
+        if(!registry_contains_suite(suite_get_name(suite)))
+            return false;
+    }
+
+    return true;
+}

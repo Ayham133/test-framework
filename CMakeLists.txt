@@ -46,11 +46,19 @@ add_executable(test_framework
     example/simple_test.c
 )
 
+add_executable(test_framework-test
+    test/suite_test.c
+)
+
 target_link_libraries(test_framework
     PRIVATE
         my_test_framework
 )
 
+target_link_libraries(test_framework-test
+    PRIVATE
+        my_test_framework
+)
 #######################################
 # Installation
 #######################################

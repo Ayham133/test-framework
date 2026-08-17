@@ -99,6 +99,23 @@ bool registry_get(const size_t index, Test *out_value);
 bool registry_contains_suite(const char *suite);
 
 /**
+ * @brief       check if the Registry tests containes this suite group.
+ *
+ * Loop through the Registry.tests and check
+ * if one of the tests containes this suite.
+ *
+ * @param group     the group to search for.
+ *
+ * @Note: this function will return false if the
+ * Registry is empty (aka doesn't have any tests)
+ * or if this suite is either NULL or empty
+ *
+ * @return [bool]       return ture if Registry.tets
+ *                      containes this all the suite group, false otherwise
+ */
+bool registry_contains_suite_group(SuiteGroup *group);
+
+/**
  * @brief               initiat the Registry with initial values like capacity to 20, size set to be zero, and allocate memory for tests.
  *
  * @param [void]

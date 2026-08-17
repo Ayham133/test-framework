@@ -75,3 +75,8 @@ void reporter_no_suites_were_found(const char *suite)
 {
     printf(T_RED "No tests found for suite '%s'.\n" T_RESET, suite);
 }
+
+void reporter_no_suites_group_were_found()
+{
+    printf(T_RED "No tests found for suite the current test group.\n" T_RESET);
+}
