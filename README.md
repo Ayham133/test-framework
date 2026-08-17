@@ -15,6 +15,7 @@ The goal of this project is to provide a simple, easy-to-use testing framework w
 - Test suits
 - Test timing
 - Test disabling and enabling
+- Suite filtering
 - Shared library support
 - Clean public API (`test.h`)
 
@@ -37,9 +38,15 @@ The goal of this project is to provide a simple, easy-to-use testing framework w
 │   ├── runner.c
 │   ├── timer.h
 │   ├── timer.c
+│   ├── suite.c
+│   ├── suite.h
+│   ├── filter.c
+│   ├── filter.h
 │   └── test_internal.c
 ├── example/
 │   └── simple_test.c
+├── test/
+│   └── suite_test.c
 └── CMakeLists.txt
 ```
 
@@ -79,7 +86,7 @@ Include the public header:
 Create a test:
 
 ```c
-TEST(Math)
+TEST(add, Math)
 {
     ASSERT_TRUE(2 + 2 == 4);
 }
@@ -93,6 +100,82 @@ int main(void)
     run_all_tests();
 }
 ```
+
+---
+
+## Disabling Tests
+
+Include the public header:
+
+```c
+#include <test.h>
+```
+
+Create a test:
+
+```c
+TEST(add, Math)
+{
+    ASSERT_TRUE(2 + 2 == 4);
+}
+```
+
+Disable tests before running the tests
+
+```c
+int main(void)
+{
+    disable("add");
+
+    run_all_tests();
+}
+```
+
+---
+
+## Filtering Suites
+
+Include the public header:
+
+```c
+#include <test.h>
+```
+
+Create a test:
+
+```c
+TEST(add, Math)
+{
+    ASSERT_TRUE(2 + 2 == 4);
+}
+
+TEST(true, Bool)
+{
+    ASSERT_TRUE(true);
+}
+
+TEST(null, Pointers)
+{
+    ASSERT_NULL(NULL);
+}
+```
+
+Filter Math, and Bool suite
+
+```c
+int main(void)
+{
+
+    SuiteGroup *group = suite_group_init();
+    suite_group_add(group, "Bool");
+    suite_group_add(group, "Math");
+
+    filter_suite_group(group);
+    run_all_tests();
+    return EXIT_SUCCESS;
+}
+```
+
 
 ---
 
@@ -129,9 +212,9 @@ File       : example/simple_test.c:7
 Currently implemented:
 
 - `ASSERT_TRUE(expression)`
-- `ASSERT_FALSE()`
-- `ASSERT_NULL()`
-- `ASSERT_NOT_NULL()`
+- `ASSERT_FALSE(expression)`
+- `ASSERT_NULL(expression)`
+- `ASSERT_NOT_NULL(expression)`
 - `ASSERT_EQ()`
 - `ASSERT_EQ_INT()`
 
@@ -179,7 +262,7 @@ The user only interacts with the public API exposed by `test.h`.
 Current version:
 
 ```
-v0.2.0
+v0.3.0
 ```
 
 ---
@@ -187,7 +270,6 @@ v0.2.0
 ## Future Plans
 
 - Additional assertion macros
-- Test filtering
 - Fixtures (setup/teardown)
 
 ---
