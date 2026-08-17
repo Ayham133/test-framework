@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "reporter.h"
 #include "test_internal.h"
 #include "suite.h"
 
@@ -85,7 +86,7 @@ void registry_inc_disabled_tests(void)
  */
 bool registry_get(const size_t index, Test *out_value)
 {
-    if(index > Registry.size)
+    if(index >= Registry.size)
         return false;
 
     *out_value = Registry.tests[index];
@@ -311,17 +312,20 @@ bool registry_contains_suite_group(SuiteGroup *group)
 {
     if(registry_size() == 0 || group == NULL)
         return false;
-
+    
+    bool found = false;
     Test *current;
-    Suite *suite;
+    Suite *suite = malloc(sizeof(Suite *));
     for (int j = 0; j < suite_group_size(group); j++) {
-
-        if(!suite_group_get(group, j, suite))
-            continue;
-
+        
+        Suite *suite = suite_group_get(group, j);
         if(!registry_contains_suite(suite_get_name(suite)))
-            return false;
+        {
+            reporter_no_suites_were_found(suite_get_name(suite));
+        }
+        else
+            found = true;
     }
 
-    return true;
+    return found;
 }

@@ -7,6 +7,7 @@
  */
 
 #include "../include/test.h"
+#include "suite.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -113,7 +114,6 @@ bool suite_group_is_full(SuiteGroup *suite_group)
  */
 bool suite_group_is_empty(SuiteGroup *suite_group){return suite_group->number_of_suites == 0;}
 
-// BUG: This Function is a Cluster Fuck
 /**
  * @brife       get the requeseted suite from this suite_group list
  *
@@ -130,15 +130,12 @@ bool suite_group_is_empty(SuiteGroup *suite_group){return suite_group->number_of
  * and this function will returh false if the index is out of bound, and if the
  * out_value is null
  */
-bool suite_group_get(SuiteGroup *suite_group, unsigned index, Suite *out_value)
+Suite *suite_group_get(const SuiteGroup *group, size_t index)
 {
-    if(suite_group == NULL || suite_group_is_empty(suite_group) 
-        || index >= suite_group->number_of_suites
-        || out_value == NULL)
-        return false;
+    if (group == NULL || index >= group->number_of_suites)
+        return NULL;
 
-    *out_value = suite_group->suites[index];
-    return true;
+    return &group->suites[index];
 }
 
 /**

@@ -11,6 +11,8 @@
 
 
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "../include/test.h"
@@ -60,53 +62,59 @@ void filter_suite(const char *suite)
 }
 
 /**
- * @brief       filters specific suite group in the registery.
+ * @brief Filters the registry to tests belonging to a specific suite group.
  *
- * Loop through the registery and make any test with different suite than
- * any of the suites in this group disabled.
+ * Iterates through all registered tests and disables any test whose suite
+ * does not belong to the specified suite group.
  *
- * @example: if the user filter_suite_group(group1),
- * and group1 = {"Math", "Pointers"}, then the runner
- * will only run the tests with a suite "Math" and "Pointers"
+ * @example
+ * If the user calls filter_suite_group(group1), where group1 contains
+ * {"Math", "Pointers"}, only tests belonging to the "Math" or "Pointers"
+ * suites will remain enabled.
  *
- * @param group     the group to filter by
+ * @param group The suite group to filter the registry by.
  *
- * @Note: the function will return if the registery is
- * empty(aka, doesn't containe any tests) or this specific
- * suite group wasn't found in the registery.
+ * @note The function returns without making changes if the registry is empty
+ *       or if the specified suite group does not exist in the registry.
  */
 void filter_suite_group(SuiteGroup *group)
 {
-    if(group == NULL || registry_size() == 0)
+    if (group == NULL || registry_size() == 0)
         return;
 
-    if(!registry_contains_suite_group(group))
+    if (!registry_contains_suite_group(group))
     {
         reporter_no_suites_group_were_found();
         return;
     }
 
-    char *suite_name;
-    Suite *current_suite;
-    for (int i = 0; i < suite_group_size(group); i++) {
+    for (size_t j = 0; j < registry_size(); j++)
+    {
+        Test current;
 
-        if(!suite_group_get(group, i, current_suite))
+        if (!registry_get(j, &current))
             continue;
 
-        suite_name = suite_get_name(current_suite);
+        int found = 0;
 
-
-        Test current;
-        for(int i = 0; i < registry_size(); i++)
+        for (size_t i = 0; i < suite_group_size(group); i++)
         {
-            if(!registry_get(i, &current))
+            Suite *suite = suite_group_get(group, i);
+
+            if (suite == NULL)
                 continue;
 
-            if(strcmp(suite_get_name(current.suite), suite_name) != 0)// isn't the same
+            if (strcmp(suite_get_name(current.suite),
+                       suite_get_name(suite)) == 0)
             {
-                disable(current.name);
+                found = 1;
+                break;
             }
         }
-    }
 
+        if (!found)
+            disable(current.name);
+    }
 }
+
+

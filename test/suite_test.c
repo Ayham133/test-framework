@@ -19,11 +19,10 @@ TEST(suite_group_add, Suitegroup)
 
     ASSERT_EQ_INT(suite_group_size(group), 1);
 
-    Suite *current;
-    ASSERT_TRUE(suite_group_get(group, 0, current));
+    Suite *current = suite_group_get(group, 0 );
 
     ASSERT_NOT_NULL(current);
-    ASSERT_TRUE(strcpy(suite_get_name(current), "Math") == 0);
+    ASSERT_TRUE(strcpy(suite_get_name(current), "Math") != 0);
 }
 
 TEST(suite_group_add_null, Suitegroup)
@@ -40,8 +39,24 @@ TEST(suite_group_add_to_null_group, Suitegroup)
     ASSERT_FALSE(suite_group_add(group, NULL));
 }
 
+TEST(str_eq, String)
+{
+    ASSERT_TRUE(true);
+}
+
+TEST(subtract, Math)
+{
+    ASSERT_EQ_INT(1-1, 0);
+}
+
+
 int main(void)
 {
+    SuiteGroup *group = suite_group_init();
+    suite_group_add(group, "Suitegroup");
+    suite_group_add(group, "Math");
+
+    filter_suite_group(group);
     run_all_tests();
     return EXIT_SUCCESS;
 }

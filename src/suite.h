@@ -71,7 +71,7 @@ bool suite_group_is_empty(SuiteGroup *suite_group);
  * and this function will returh false if the index is out of bound, and if the
  * out_value is null
  */
-bool suite_group_get(SuiteGroup *suite_group, unsigned index, Suite *out_value);
+Suite *suite_group_get(const SuiteGroup *group, size_t index);
 
 /**
  * @brief       get the size of the requeseted group

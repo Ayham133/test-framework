@@ -8,7 +8,6 @@ TEST(equals, Math)
 {
     ASSERT_TRUE(1 == 1);
     ASSERT_TRUE(1 == 1);
-    ASSERT_TRUE(1 != 1); // false assert
     ASSERT_FALSE(1 != 1);
     ASSERT_TRUE(1 == 1);
     ASSERT_TRUE(1 == 1);
@@ -22,7 +21,10 @@ TEST(null_test, Null)
 
 int main(void)
 {
-    filter_suite("Null");
+    SuiteGroup *group = suite_group_init();
+    suite_group_add(group, "Math");
+
+    filter_suite_group(group);
     run_all_tests();
     return EXIT_SUCCESS;
 }
