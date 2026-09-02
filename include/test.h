@@ -27,9 +27,6 @@
 #define ASSERT_FALSE(condition) \
     test_assert_false((condition), #condition, __FILE__, __LINE__);
 
-#define ASSERT_EQ(condition, actual)    \
-    test_assert_eq((condition), (actual), #condition, #actual, __FILE__, __LINE__);
-
 #define ASSERT_NULL(pointer)    \
     test_assert_null((pointer), #pointer, __FILE__, __LINE__);
 

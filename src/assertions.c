@@ -27,30 +27,6 @@ void test_assert_true(int condition, const char *str, const char *file, int line
 }
 
 /**
- * @brief   build the test. tests the condition if it is equal to the actual.
- *
- * @param condition             the condition to be tested.
- * @param condition_str         a string of the condition, used to print the message of the test itself when reporting.
- * @param actual_str            a string of the actual, used to print the message of the test itself when reporting.
- * @param file                  the name of the file.
- * @param line                  the line number.
- */
-void test_assert_eq(int condition, int actual, const char *condition_str, const char *actual_str, const char *file, int line)
-{
-    #ifdef Debug
-    printf("Running Assertion\n");
-    #endif
-    if(condition != actual)
-    {
-        printf("\tAssertation failed\n");
-        printf("\tExpretion: %s\n", condition_str);
-        printf("\tActual: %s\n", actual_str);
-        printf("\tFile: %s, at line: %d\n\n", file, line);
-        set_current_test_status_to(false);
-    }
-}
-
-/**
  * @brief   assert the test and check if the pointer is null or not.
  *
  * @param pointer     the ginirc pointer to check if it is null or not.
@@ -135,9 +111,9 @@ void test_assert_eq_int(int condition, const char *condition_str, int actual, co
     #endif
     if (condition != actual) {
         printf("\tAssertation failed\n");
-        printf("\t\t%s\n", condition_str);
-        printf("\tActual:\n");
-        printf("\t\t%s\n", actual_str);
+        printf("\t\t%s: %d\n", condition_str, condition);
+        printf("\tExpected:\n");
+        printf("\t\t%d\n", actual);
         printf("\tFile: %s, at line: %d\n\n", file, line);
         set_current_test_status_to(false);
     }

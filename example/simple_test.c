@@ -18,13 +18,17 @@ TEST(null_test, Null)
     ASSERT_NULL(NULL);
 }
 
+int max(int a, int b){return (a > b)?a:b;}
+
+TEST(eq_int, EQ)
+{
+    ASSERT_EQ_INT(max(2, 1), 1);
+}
+
 
 int main(void)
 {
-    SuiteGroup *group = suite_group_init();
-    suite_group_add(group, "Math");
-
-    filter_suite_group(group);
+    filter_suite("EQ");
     run_all_tests();
     return EXIT_SUCCESS;
 }
