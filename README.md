@@ -272,7 +272,7 @@ The user only interacts with the public API exposed by `test.h`.
 Current version:
 
 ```
-v0.3.0
+v0.3.5
 ```
 
 ---
