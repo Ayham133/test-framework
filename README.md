@@ -176,6 +176,16 @@ int main(void)
 }
 ```
 
+Filter one suite
+
+```c
+int main(void)
+{
+    filter_suite("Bool");
+    run_all_tests();
+    return EXIT_SUCCESS;
+}
+```
 
 ---
 
