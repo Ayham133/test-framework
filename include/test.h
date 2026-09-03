@@ -19,23 +19,28 @@
 
 
 #define REGISTER_TEST(name) \
-    register_test(name, #name);
+    register_test(name, #name)
 
 #define ASSERT_TRUE(condition)  \
-    test_assert_true((condition), #condition, __FILE__, __LINE__);
+    test_assert_true((condition), #condition, __FILE__, __LINE__)
 
 #define ASSERT_FALSE(condition) \
-    test_assert_false((condition), #condition, __FILE__, __LINE__);
+    test_assert_false((condition), #condition, __FILE__, __LINE__)
 
 #define ASSERT_NULL(pointer)    \
-    test_assert_null((pointer), #pointer, __FILE__, __LINE__);
+    test_assert_null((pointer), #pointer, __FILE__, __LINE__)
 
 #define ASSERT_NOT_NULL(pointer)   \
-    test_assert_not_null((pointer), #pointer, __FILE__, __LINE__);
+    test_assert_not_null((pointer), #pointer, __FILE__, __LINE__)
 
-#define ASSERT_EQ_INT(condition, actual)  \
-    test_assert_eq_int((condition), #condition, actual, #actual, __FILE__, __LINE__);
+#define ASSERT_EQ_INT(condition, expected)  \
+    test_assert_eq_int((condition), #condition, expected, #expected, __FILE__, __LINE__)
 
+#define ASSERT_EQ_STR(condition, expected) \
+    test_assert_eq_str((condition), (expected), __FILE__, __LINE__)
+
+#define ASSERT_NOT_EQ_STR(condition, expected) \
+    test_assert_not_eq_str((condition), (expected), __FILE__, __LINE__)
 
 typedef void (*TestFunction)(void);
 
@@ -56,6 +61,34 @@ typedef struct SuiteGroup SuiteGroup;
  * @Note: this function will edit the status of the current_test variable in src/test_internal.c file.
  */
 void test_assert_eq_int(int condition, const char *condition_str, int actual, const char *actual_str, const char *file, int line);
+
+/**
+ * @brief    compare condition with expected and report the resutls.
+ *
+ * @param condition         the condition to test for.
+ * @param expected          the expected resutls for the equation.
+ * @param file              the name of the file.
+ * @param line              the line number.
+ *
+ * @note    this assertion looks for the if both condition and expected are equals. it will file if otherwise.
+ * @note    this function will return if the any input are null, or any other errors.
+ * @note    this function will edit the status of the current_test variable in src/test_internal.c file.
+ */
+void test_assert_eq_str(const char *condition, const char *expected, const char *file, int line);
+
+/**
+ * @brief    compare condition with expected and report the resutls.
+ *
+ * @param condition         the condition to test for.
+ * @param expected          the expected resutls for the equation.
+ * @param file              the name of the file.
+ * @param line              the line number.
+ *
+ * @note    this assertion looks for the if both condition and expected are not equals. it will file if otherwise.
+ * @note    this function will return if the any input are null, or any other errors.
+ * @note    this function will edit the status of the current_test variable in src/test_internal.c file.
+ */
+void test_assert_not_eq_str(const char *condition, const char *expected, const char *file, int line);
 
 /**
  * @brief   build the test.

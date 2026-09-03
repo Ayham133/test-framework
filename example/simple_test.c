@@ -25,10 +25,26 @@ TEST(eq_int, EQ)
     ASSERT_EQ_INT(max(2, 1), 1);
 }
 
+TEST(str_cmp_same, STR)
+{
+    const char *str1 = "HI";
+    const char *str2 = "HI";
+
+    ASSERT_EQ_STR(str1, str2);
+}
+
+TEST(str_cmp_not_same, STR)
+{
+    const char *str1 = "NOt HI";
+    const char *str2 = "HI";
+
+    ASSERT_NOT_EQ_STR(str1, str2);
+}
+
 
 int main(void)
 {
-    filter_suite("EQ");
+    filter_suite("STR");
     run_all_tests();
     return EXIT_SUCCESS;
 }
