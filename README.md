@@ -227,9 +227,8 @@ Currently implemented:
 - `ASSERT_NOT_NULL(expression)`
 - `ASSERT_EQ()`
 - `ASSERT_EQ_INT()`
-
-More assertions are planned for future releases:
-- `ASSERT_STR_EQ()`
+- `ASSERT_EQ_STR()`
+- `ASSERT_NOT_EQ_STR()`
 
 ---
 
@@ -272,7 +271,7 @@ The user only interacts with the public API exposed by `test.h`.
 Current version:
 
 ```
-v0.3.5
+v0.4.0
 ```
 
 ---
