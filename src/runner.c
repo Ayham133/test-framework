@@ -64,5 +64,6 @@ bool run_all_tests(void)
     }
 
     reporter_test_summary();
+
     return true;
 }

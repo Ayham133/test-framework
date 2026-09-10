@@ -1,9 +1,11 @@
-#include "test_internal.h"
-#include "suite.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "test_internal.h"
+#include "suite.h"
+#include "registry.h"
 
 static Test *current_test;
 
@@ -131,4 +133,22 @@ void print_current_test(void)
 {
     printf("name: %s\n: ", current_test->name);
     printf("disabled: %b\n", current_test->disabled);
+}
+
+/**
+ * @brief       end this test session, and free the memory.
+ *
+ * @example     this function is advised to be place at the end
+ *              of your main function, after you run_all_tests function.
+ *
+ * @note: this function will return if there were no tests to free, or the registery is empty.
+ */
+void end_tests(void)
+{
+    registry_destroy();
+
+    current_test->function = NULL;
+    current_test->suite = NULL;
+    free(current_test->name);
+    current_test = NULL;
 }

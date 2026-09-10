@@ -1,15 +1,17 @@
-#include "../include/test.h"
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "../include/test.h"
 #include "reporter.h"
 #include "test_internal.h"
 #include "suite.h"
+#include "registry.h"
 
 
-typedef  struct
+typedef  struct TestRegistry
 {
     Test *tests;
     size_t size;
@@ -328,4 +330,20 @@ bool registry_contains_suite_group(SuiteGroup *group)
     }
 
     return found;
+}
+
+/**
+ * @brief       free the memory of this Registry.
+ *
+ * @note    this function will return if the Registry.tets is NULL
+ */
+void registry_destroy(void)
+{
+    if(Registry.tests == NULL)
+        return;
+
+    free(Registry.tests);
+    Registry.tests = NULL;
+    Registry.size = 0;
+    Registry.capacity = 0;
 }

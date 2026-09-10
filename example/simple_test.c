@@ -46,5 +46,7 @@ int main(void)
 {
     filter_suite("STR");
     run_all_tests();
+
+    end_tests();
     return EXIT_SUCCESS;
 }

@@ -268,4 +268,14 @@ bool suite_group_add(SuiteGroup *suite_group, const char *suite);
  */
 bool run_all_tests(void);
 
+/**
+ * @brief       end this test session, and free the memory.
+ *
+ * @example     this function is advised to be place at the end
+ *              of your main function, after you run_all_tests function.
+ *
+ * @note: this function will return if there were no tests to free, or the registery is empty.
+ */
+void end_tests(void);
+
 #endif // !TEST_H

@@ -130,5 +130,12 @@ static bool registry_init(void);
  */
 static void registry_error(const char *message);
 
+/**
+ * @brief       free the memory of this Registry.
+ *
+ * @param Registry      the requested Registry to free.
+ * @note    this function will return if the requested Registry is NULL
+ */
+void registry_destroy(void);
 
 #endif // !REGISTRY_H
