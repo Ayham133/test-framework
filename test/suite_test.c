@@ -58,5 +58,6 @@ int main(void)
 
     filter_suite_group(group);
     run_all_tests();
+    end_tests();
     return EXIT_SUCCESS;
 }

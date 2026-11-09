@@ -178,23 +178,6 @@ void disable(const char *name);
 void enable(const char *name);
 
 /**
- * @brief       filters specific test suite in the registery.
- *
- * Loop through the registery and make any test with different suite than
- * this specific suit, disabled.
- *
- * @example: if the user filter_suite(Math),
- * then the runner will only run the tests with a suite "Math"
- *
- * @param suite     the specific suite to filter for
- *
- * @Note: the function will return if the registery is
- * empty(aka, doesn't containe any tests) or this specific
- * wasn't found in the registery.
- */
-void filter_suite(const char *suite);
-
-/**
  * @brief       filters specific suite group in the registery.
  *
  * Loop through the registery and make any test with different suite than

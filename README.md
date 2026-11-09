@@ -12,11 +12,12 @@ The goal of this project is to provide a simple, easy-to-use testing framework w
 - Assertion macros
 - Test runner
 - Test reporting
-- Test suits
+- Test suites
 - Test timing
 - Test disabling and enabling
 - Suite filtering
 - Shared library support
+- Memory Management
 - Clean public API (`test.h`)
 
 ---
@@ -92,12 +93,13 @@ TEST(add, Math)
 }
 ```
 
-Run all registered tests:
+Run all registered tests, then end this test session (clear the memory after finishing this test session);
 
 ```c
 int main(void)
 {
     run_all_tests();
+    end_test();
 }
 ```
 
@@ -128,6 +130,7 @@ int main(void)
     disable("add");
 
     run_all_tests();
+    end_tests();
 }
 ```
 
@@ -172,6 +175,7 @@ int main(void)
 
     filter_suite_group(group);
     run_all_tests();
+    end_tests();
     return EXIT_SUCCESS;
 }
 ```
@@ -183,6 +187,7 @@ int main(void)
 {
     filter_suite("Bool");
     run_all_tests();
+    end_tests();
     return EXIT_SUCCESS;
 }
 ```
@@ -229,6 +234,22 @@ Currently implemented:
 - `ASSERT_EQ_INT()`
 - `ASSERT_EQ_STR()`
 - `ASSERT_NOT_EQ_STR()`
+
+---
+
+## Function in the public API `test.h`
+
+Currently implemented:
+
+- `void register_test(const char *name, const char *suit, void(*function)(void));`
+- `void disable(const char *name);` 
+- `void enable(const char *name);`
+- `SuiteGroup *suite_group_init();`
+- `void filter_suite(const char *suite);`
+- `void filter_suite_group(SuiteGroup *group);`
+- `bool suite_group_add(SuiteGroup *suite_group, const char *suite);`
+- `bool run_all_tests(void);`
+- `void end_tests(void);`
 
 ---
 
