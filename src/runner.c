@@ -1,8 +1,8 @@
 #include "../include/test.h"
-#include "registry.h"
-#include "test_internal.h"
-#include "reporter.h"
-#include "timer.h"
+#include "internal/registry.h"
+#include "internal/test_internal.h"
+#include "internal/reporter.h"
+#include "internal/timer.h"
 
 
 void update_current_test_and_report_status()

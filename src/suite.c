@@ -7,7 +7,7 @@
  */
 
 #include "../include/test.h"
-#include "suite.h"
+#include "internal/suite.h"
 #include <stdlib.h>
 #include <string.h>
 

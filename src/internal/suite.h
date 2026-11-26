@@ -4,7 +4,7 @@
  * Date: 14/08/2026
  */
 
-#include "../include/test.h"
+#include "../../include/test_framework/api.h"
 
 typedef struct Suite Suite;
 

@@ -16,10 +16,10 @@
 #include <string.h>
 
 #include "../include/test.h"
-#include "suite.h"
-#include "registry.h"
-#include "reporter.h"
-#include "test_internal.h"
+#include "internal/suite.h"
+#include "internal/registry.h"
+#include "internal/reporter.h"
+#include "internal/test_internal.h"
 
 
 /**

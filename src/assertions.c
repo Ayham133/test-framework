@@ -1,5 +1,5 @@
 #include "../include/test.h"
-#include "test_internal.h"
+#include "./internal/test_internal.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>

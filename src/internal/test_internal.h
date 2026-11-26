@@ -1,7 +1,7 @@
 #ifndef TEST_INTERNAL_H
 #define TEST_INTERNAL_H
 
-#include "../include/test.h"
+#include "../../include/test_framework/api.h"
 #include "suite.h"
 #include <stddef.h>
 

@@ -1,6 +1,6 @@
-#include "reporter.h"
-#include "registry.h"
-#include "test_internal.h"
+#include "internal/reporter.h"
+#include "internal/registry.h"
+#include "internal/test_internal.h"
 #include <stdio.h>
 
 

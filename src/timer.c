@@ -7,7 +7,7 @@
  */
 
 
-#include "timer.h"
+#include "internal/timer.h"
 #include <stdbool.h>
 #include <time.h>
 

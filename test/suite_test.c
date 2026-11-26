@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../include/test.h"
-#include "../src/suite.h"
+#include "../src/internal/suite.h"
 
 TEST(suite_group_init_not_null, Suitegroup)
 {

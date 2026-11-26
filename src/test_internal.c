@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "test_internal.h"
-#include "suite.h"
-#include "registry.h"
+#include "internal/test_internal.h"
+#include "internal/suite.h"
+#include "internal/registry.h"
 
 static Test *current_test;
 

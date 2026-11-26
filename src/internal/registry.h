@@ -1,7 +1,7 @@
 #ifndef REGISTRY_H
 #define REGISTRY_H
 
-#include "../include/test.h"
+#include "../../include/test_framework/api.h"
 
 typedef struct TestRegistry TestRegistry;
 
