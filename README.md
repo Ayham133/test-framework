@@ -27,22 +27,23 @@ The goal of this project is to provide a simple, easy-to-use testing framework w
 ```
 .
 ├── include/
-│   └── test.h          # Public API
+│   └── test_framework          
+│        └── api.h          # Public API
 ├── src/
-│   ├── registry.h
-│   ├── reporter.h
-│   ├── runner.h
-│   ├── test_internal.h
+│   ├── internal/
+│   │    ├── registry.h
+│   │    ├── reporter.h
+│   │    ├── runner.h
+│   │    ├── test_internal.h
+│   │    ├── suite.h
+│   │    └── timer.h
 │   ├── assertions.c
 │   ├── registry.c
 │   ├── reporter.c
 │   ├── runner.c
-│   ├── timer.h
 │   ├── timer.c
 │   ├── suite.c
-│   ├── suite.h
 │   ├── filter.c
-│   ├── filter.h
 │   └── test_internal.c
 ├── example/
 │   └── simple_test.c
@@ -292,7 +293,7 @@ The user only interacts with the public API exposed by `test.h`.
 Current version:
 
 ```
-v0.4.0
+v0.5.0
 ```
 
 ---
